@@ -32,7 +32,7 @@ const page = async() => {
         }
         BTN={Entspannung_StressabbauData.hero.link}
         container={Entspannung_StressabbauData.hero.container_Hight}
-        Image_position={Entspannung_StressabbauData.hero.Image_Position}
+        Image_Position={Entspannung_StressabbauData.hero.Image_Position}
       />
       <Clients
         title={Entspannung_StressabbauData.partnerlogo.title}

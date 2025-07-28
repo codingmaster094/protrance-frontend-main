@@ -32,7 +32,7 @@ const page = async() => {
         BannerListdata={UnerMichData.hero.richText.root.children[0].children}
         BTN={UnerMichData.hero.link}
         container={UnerMichData.hero.container_Hight}
-        Image_position={UnerMichData.hero.Image_Position}
+        Image_Position={UnerMichData.hero.Image_Position}
       />
 
       <Clients

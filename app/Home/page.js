@@ -27,12 +27,12 @@ const page = async() => {
   return (
     <>
       <Banner
-        Image_position={HomePageData.hero.Image_Position}
         Heading={HomePageData.hero.text}
         Banner={HomePageData.hero.heroImage.url}
         BannerListdata={HomePageData.hero.richText.root.children[0].children}
         BTN={HomePageData.hero.link}
         container={HomePageData.hero.container_Hight}
+        Image_Position={HomePageData.hero.Image_Position}
       />
       <Clients
         title={HomePageData.partnerlogo.title}

@@ -32,7 +32,7 @@ const page = async() => {
         }
         BTN={SelbstfursorgeData.hero.link}
         container={SelbstfursorgeData.hero.container_Hight}
-        Image_position={SelbstfursorgeData.hero.Image_Position}
+        Image_Position={SelbstfursorgeData.hero.Image_Position}
       />
       <Clients
         title={SelbstfursorgeData.partnerlogo.title}

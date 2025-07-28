@@ -28,7 +28,7 @@ const page = async() => {
         BannerListdata={BlogData.hero.richText.root.children[0].children}
         BTN={BlogData.hero.link}
         container={BlogData.hero.container_Hight}
-        Image_position={BlogData.hero.Image_Position}
+        Image_Position={BlogData.hero.Image_Position}
       />
       <Clients
         title={BlogData.partnerlogo.title}

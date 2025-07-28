@@ -31,7 +31,7 @@ const Page = async() => {
         }
         BTN={AbnehmenPageData.hero.link}
         container={AbnehmenPageData.hero.container_Hight}
-        Image_position={AbnehmenPageData.hero.Image_Position}
+        Image_Position={AbnehmenPageData.hero.Image_Position}
       />
       <Clients
         title={AbnehmenPageData.partnerlogo.title}

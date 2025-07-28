@@ -30,7 +30,7 @@ const page = async() => {
         }
         BTN={raucherentwohnungData.hero.link}
         container={raucherentwohnungData.hero.container_Hight}
-        Image_position={raucherentwohnungData.hero.Image_Position}
+        Image_Position={raucherentwohnungData.hero.Image_Position}
       />
       <Clients
         title={raucherentwohnungData.partnerlogo.title}

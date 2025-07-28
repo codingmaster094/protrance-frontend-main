@@ -27,12 +27,13 @@ const Banner = ({
             Image_Position === "top"
               ? "object-top"
               : Image_Position === "middle"
-              ? "object-center"
+              ? ""
               : Image_Position === "bottam"
               ? "object-bottom"
               : ""
           } w-full h-full`}
         />
+
       </div>
       <div className="container">
         <div className="flex flex-col gap-4 text-white  sm:items-center w-full max-w-[1056px] mx-auto">

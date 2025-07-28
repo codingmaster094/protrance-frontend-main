@@ -36,7 +36,7 @@ const page = async() => {
         }
         BTN={lampenfieber_prufungsangstData.hero.link}
         container={lampenfieber_prufungsangstData.hero.container_Hight}
-        Image_position={lampenfieber_prufungsangstData.hero.Image_Position}
+        Image_Position={lampenfieber_prufungsangstData.hero.Image_Position}
       />
       <Clients
         title={lampenfieber_prufungsangstData.partnerlogo.title}
