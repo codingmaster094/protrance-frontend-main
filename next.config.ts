@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["protrance-backend-2025.vercel.app"],
+    domains: ["protrance-backend-main.vercel.app"],
     formats: ["image/webp"],
     unoptimized: true,
   },
