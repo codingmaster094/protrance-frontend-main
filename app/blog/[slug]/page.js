@@ -27,6 +27,7 @@ const page = async({params}) => {
           SingleBlogData.docs[0].hero.richText.root.children[0].children
         }
         container={SingleBlogData.docs[0].hero.container_Hight}
+        Image_position={SingleBlogData.docs[0].hero.Image_Position}
       />
       <BlogClients
         title={SingleBlogData.docs[0].partnerlogo.title}

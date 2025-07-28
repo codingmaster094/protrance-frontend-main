@@ -24,6 +24,7 @@ const page = async() => {
         BannerListdata={KontaktData.hero.richText.root.children[0].children}
         BTN={KontaktData.hero.link}
         container={KontaktData.hero.container_Hight}
+        Image_position={KontaktData.hero.Image_Position}
       />
       <Contact
         title={KontaktData.Kontaktmöglichkeiten.headding}

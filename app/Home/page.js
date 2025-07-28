@@ -23,9 +23,11 @@ const page = async() => {
   if (!HomePageData) {
     return <div>No data available.</div>;
   }
+  console.log('HomePageData', HomePageData)
   return (
     <>
       <Banner
+        Image_position={HomePageData.hero.Image_Position}
         Heading={HomePageData.hero.text}
         Banner={HomePageData.hero.heroImage.url}
         BannerListdata={HomePageData.hero.richText.root.children[0].children}

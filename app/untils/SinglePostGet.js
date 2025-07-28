@@ -16,6 +16,6 @@ export default async function AllPost(params) {
     return data;
   } catch (error) {
     console.error("Error in Alldata:", error);
-    throw error; // Rethrow the error to be caught in the calling component
+    throw error; 
   }
 }

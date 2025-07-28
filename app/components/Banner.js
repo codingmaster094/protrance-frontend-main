@@ -1,8 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-const Banner = ({ container , Heading, Banner, BTN, BannerListdata }) => {
-
+const Banner = ({
+  Image_Position ,container,
+  Heading,
+  Banner,
+  BTN,
+  BannerListdata,
+}) => {
+  console.log('Image_Position', Image_Position)
   return (
     <div
       className={
@@ -17,7 +23,15 @@ const Banner = ({ container , Heading, Banner, BTN, BannerListdata }) => {
           alt="Banner-img"
           width={1600}
           height={980}
-          className="object-cover w-full h-full "
+          className={`object-cover ${
+            Image_Position === "top"
+              ? "object-top"
+              : Image_Position === "middle"
+              ? "object-center"
+              : Image_Position === "bottam"
+              ? "object-bottom"
+              : ""
+          } w-full h-full`}
         />
       </div>
       <div className="container">
@@ -33,7 +47,7 @@ const Banner = ({ container , Heading, Banner, BTN, BannerListdata }) => {
               </li>
             ))}
           </ul>
-          {( BTN.url != "") && (
+          {BTN.url != "" && (
             <Link
               href={BTN.url || BTN.url}
               aria-label="link"

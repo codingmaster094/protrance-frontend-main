@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-const Blogbanner = ({ container, Heading, Banner, BannerListdata }) => {
+const Blogbanner = ({ Image_Position ,container, Heading, Banner, BannerListdata }) => {
   return (
     <section>
       <div className=" relative bg-accent overflow-hidden">
@@ -28,7 +28,15 @@ const Blogbanner = ({ container, Heading, Banner, BannerListdata }) => {
                 alt="banner"
                 width={800}
                 height={400}
-                className="object-cover w-full h-full"
+                className={`object-cover ${
+                  Image_Position === "top"
+                    ? "object-top"
+                    : Image_Position === "middle"
+                    ? "object-center"
+                    : Image_Position === "bottom"
+                    ? "object-bottom"
+                    : ""
+                } w-full h-full`}
               />
             </div>
           </div>

@@ -36,6 +36,7 @@ const page = async() => {
         }
         BTN={lampenfieber_prufungsangstData.hero.link}
         container={lampenfieber_prufungsangstData.hero.container_Hight}
+        Image_position={lampenfieber_prufungsangstData.hero.Image_Position}
       />
       <Clients
         title={lampenfieber_prufungsangstData.partnerlogo.title}
@@ -80,9 +81,7 @@ const page = async() => {
         title={lampenfieber_prufungsangstData.service.title}
         ImageArray={lampenfieber_prufungsangstData.service.nestedService}
       />
-      <Reviews
-        params={lampenfieber_prufungsangstData.Reviews.enableReviews}
-      />
+      <Reviews params={lampenfieber_prufungsangstData.Reviews.enableReviews} />
       <FAQ
         title={lampenfieber_prufungsangstData.faq.title}
         ArrayData={lampenfieber_prufungsangstData.faq.nestedfaq}

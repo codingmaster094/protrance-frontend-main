@@ -32,6 +32,7 @@ const page = async() => {
         }
         BTN={Entspannung_StressabbauData.hero.link}
         container={Entspannung_StressabbauData.hero.container_Hight}
+        Image_position={Entspannung_StressabbauData.hero.Image_Position}
       />
       <Clients
         title={Entspannung_StressabbauData.partnerlogo.title}
@@ -69,9 +70,7 @@ const page = async() => {
         title={Entspannung_StressabbauData.service.title}
         ImageArray={Entspannung_StressabbauData.service.nestedService}
       />
-      <Reviews
-        params={Entspannung_StressabbauData.Reviews.enableReviews}
-      />
+      <Reviews params={Entspannung_StressabbauData.Reviews.enableReviews} />
       <FAQ
         title={Entspannung_StressabbauData.faq.title}
         ArrayData={Entspannung_StressabbauData.faq.nestedfaq}
