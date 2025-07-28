@@ -8,7 +8,6 @@ const Banner = ({
   BTN,
   BannerListdata,
 }) => {
-  console.log('Image_Position', Image_Position)
   return (
     <div
       className={

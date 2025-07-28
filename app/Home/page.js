@@ -23,7 +23,6 @@ const page = async() => {
   if (!HomePageData) {
     return <div>No data available.</div>;
   }
-  console.log('HomePageData', HomePageData)
   return (
     <>
       <Banner
