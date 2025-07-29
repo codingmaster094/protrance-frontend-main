@@ -12,9 +12,9 @@ ImageArray
       <div className="container">
         <div className="flex flex-col gap-6  mb-8 md:mb-10 lg:mb-20 justify-center text-center">
           <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
-          <div
+          <p
             dangerouslySetInnerHTML={{__html: description}}
-          ></div>
+          ></p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {ImageArray.map((item, index) => (

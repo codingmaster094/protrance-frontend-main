@@ -19,7 +19,7 @@ ImageArray
       <div className="container">
         <div className="flex flex-col mb-8 md:mb-10 lg:mb-20 text-center gap-4">
           <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
-          <div dangerouslySetInnerHTML={{ __html: description }}></div>
+          <p dangerouslySetInnerHTML={{ __html: description }}></p>
         </div>
         <div className="flex relative">
           <Swiper

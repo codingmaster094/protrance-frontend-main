@@ -27,12 +27,12 @@
                 <span className="text-[50px] font-semibold font-Josefin block leading-tight">
                   {item.subtitle}
                 </span>
-                <div
+                <p
                   dangerouslySetInnerHTML={{
                     __html: item.description.root.children[0].children[0].text,
                   }}
                 >
-                </div>
+                </p>
               </div>
             ))}
           </div>

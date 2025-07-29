@@ -33,7 +33,7 @@ subdescription
                 className="text-lg lg:text-2xl"
                 dangerouslySetInnerHTML={{ __html: title }}
               ></h3>
-              <div dangerouslySetInnerHTML={{ __html: description1 }}></div>
+              <p dangerouslySetInnerHTML={{ __html: description1 }}></p>
               <ul className="list-disc marker:text-primary ms-5 text-accent1 text-opacity-80 p">
                 {subdescription.map((li, i) => {
                   return <li key={i}>{li.children[0].text}</li>;

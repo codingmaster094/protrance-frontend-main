@@ -16,10 +16,10 @@ const hypnosisweightloss = ({ ImageUrl, title, description, ImageArry }) => {
           </div>
           <div className="flex flex-col w-full lg:w-1/2 gap-4 lg:gap-8 flex-1">
             <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
-            <div
+            <p
               className="flex flex-col gap-4"
               dangerouslySetInnerHTML={{ __html: description }}
-            ></div>
+            ></p>
             <div className="flex gap-6 flex-col sm:flex-row">
               {ImageArry.map((item, index) => (
                 <div key={index}>

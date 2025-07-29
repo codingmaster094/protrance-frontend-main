@@ -12,7 +12,7 @@ YearArray
       <div className="container">
         <div className="flex flex-col gap-6  mb-8 md:mb-10 lg:mb-20 justify-center text-center">
           <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
-          <div dangerouslySetInnerHTML={{ __html: description }}></div>
+          <p dangerouslySetInnerHTML={{ __html: description }}></p>
         </div>
         <div className="timeline relative w-full h-full lg:h-[500px] flex flex-col lg:flex-row justify-between mx-[15px] sm:mx-0 gap-4 before:content-[''] before:absolute before:top-0 lg:before:top-1/2 before:left-0 before:w-[2px] lg:before:w-full before:h-full lg:before:h-[2px] before:bg-[#dedede] before:z-10">
           {YearArray.map((item, index) => {

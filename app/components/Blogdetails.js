@@ -133,7 +133,7 @@ const Blogdetails = ({ bloAboutTitle,blogContent, cta_image, cta_title , cta_des
               className="mb-4"
               dangerouslySetInnerHTML={{ __html: cta_title }}
             ></h2>
-            <div dangerouslySetInnerHTML={{ __html: cta_description }}></div>
+            <p dangerouslySetInnerHTML={{ __html: cta_description }}></p>
             <div className="flex">
               {cta_BTN && (
                 <Link

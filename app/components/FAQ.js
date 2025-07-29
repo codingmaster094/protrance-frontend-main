@@ -46,12 +46,12 @@ const FAQ = ({ SectionShow,title, ArrayData }) => {
                     activeIndex === index ? "block " : "hidden"
                   }`}
                 >
-                  <div
+                  <p
                     dangerouslySetInnerHTML={{
                       __html:
                         item.description.root.children[0].children[0].text,
                     }}
-                  ></div>
+                  ></p>
                 </div>
               </div>
             ))}

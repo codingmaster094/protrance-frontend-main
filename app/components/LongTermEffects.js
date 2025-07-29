@@ -14,7 +14,7 @@ ImageArray
       <div className="container">
         <div className="flex flex-col gap-6  mb-8 md:mb-10 lg:mb-20 justify-center text-center">
           <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
-          <div dangerouslySetInnerHTML={{ __html: description }}></div>
+          <p dangerouslySetInnerHTML={{ __html: description }}></p>
         </div>
         <div className="flex gap-8 2xl:gap-20 flex-col lg:flex-row">
           <div className="flex flex-col w-full sm:w-[65%] lg:w-[40%] rounded-[32px] overflow-hidden h-[400px] xl:h-[610px]">

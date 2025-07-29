@@ -11,7 +11,7 @@ const Reference = ({Image_Data ,Main_title,Main_description}) => {
           <h2 dangerouslySetInnerHTML={{ __html: Main_title }}></h2>
           }
           {Main_description && (
-            <div dangerouslySetInnerHTML={{ __html: Main_description }}></div>
+            <p dangerouslySetInnerHTML={{ __html: Main_description }}></p>
           )}
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

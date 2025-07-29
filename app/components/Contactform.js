@@ -14,8 +14,8 @@ MapImage
       <div className="container">
         <div className="flex flex-col gap-6  mb-8 md:mb-10 lg:mb-20 justify-center text-center">
           <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
-          <div dangerouslySetInnerHTML={{ __html: description }}>
-          </div>
+          <p dangerouslySetInnerHTML={{ __html: description }}>
+          </p>
         </div>
         <div className="flex justify-between flex-col md:flex-row">
           <div className="w-full md:w-[40%] gap-6 shadow-[0px_4.8px_24.4px_-6px_#1310221A] p-6 rounded-3xl">
