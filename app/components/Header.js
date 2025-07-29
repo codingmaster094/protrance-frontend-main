@@ -156,14 +156,14 @@ const Header = ({ Menus, HeaderData }) => {
                         </button>
 
                         {openDropdown && (
-                          <ul className="lg:absolute left-0 mt-2 bg-white text-black shadow-lg rounded w-40 z-[999]">
+                          <ul className="staic lg:absolute left-0 mt-2 bg-white text-black shadow-lg rounded w-40 z-[999]">
                             {item.submenus[0]?.links?.map((submenu) => (
                               <li key={submenu.id}>
                                 <Link
                                   href={submenu.link?.url || "#"}
                                   className={`block px-4 py-2 hover:bg-gray-200 ${
                                     isActive(submenu.link?.url)
-                                      ? "bg-gray-100 font-semibold"
+                                      ? "bg-gray-100"
                                       : ""
                                   }`}
                                 >
@@ -193,19 +193,19 @@ const Header = ({ Menus, HeaderData }) => {
 
             {/* Mobile only button */}
             <Link
-              href="/kontakt"
+              href={HeaderData.link.url}
               className="btn btn-primary lg:hidden hover:bg-black mt-4"
             >
-              KONTAKT
+              {HeaderData.link.Kontakt_label}
             </Link>
           </div>
 
           {/* Desktop only button */}
           <Link
-            href="/kontakt"
+            href={HeaderData.link.url}
             className="btn btn-primary hidden lg:inline-flex mt-0 hover:bg-black"
           >
-            KONTAKT
+            {HeaderData.link.Kontakt_label}
           </Link>
 
           {/* Mobile Toggle */}
