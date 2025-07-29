@@ -3,7 +3,7 @@ export default async function AllPost(params) {
     const response = await fetch(
       `${
         process.env.NEXT_POST_BASE_URL ||
-        "https://protrance-backend-main.vercel.app"
+        "https://protrance-backend-main.vercel.app/api"
       }${params}`,
       { next: { revalidate: 0 } }
     );
