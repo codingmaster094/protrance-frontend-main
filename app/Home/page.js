@@ -84,6 +84,7 @@ const page = async() => {
           HomePageData.cta2.description.root.children[0].children[0].text
         }
         BTN={HomePageData.cta2.link}
+        cta_image={HomePageData.cta2.cta_image}
       />
       <Protrance
         title={HomePageData.service2.title}
