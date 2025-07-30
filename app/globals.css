@@ -124,3 +124,41 @@
 .reference-blog p{
      @apply w-full max-w-[850px] mx-auto
 }
+.menu, .payload-richtext ul, .payload-richtext ol{
+   @apply pl-[26px];
+}
+.menu li:has(a) {
+ @apply list-disc text-[#1a609a];
+}
+.payload-richtext h2, .payload-richtext h3, .payload-richtext h4, .payload-richtext h5 {
+   @apply mt-5 my-4;
+}
+.payload-richtext p{
+   @apply mb-4;
+}
+.payload-richtext img{
+   @apply my-6;
+}
+.payload-richtext ul,.payload-richtext ol{
+   @apply flex flex-col gap-3 my-5;
+}
+.payload-richtext ul li, .payload-richtext ol li{
+   @apply list-disc;
+}
+blockquote {
+   @apply px-[30px] py-20 bg-primary text-white my-[30px] mx-0 rounded-3xl flex flex-col justify-center items-center text-center relative z-10;
+}
+blockquote a{
+   @apply rounded-full py-2 px-4 xsm:px-8 font-medium transition-all inline-flex items-center justify-center mt-4 xsm:mt-6 bg-white hover:bg-secondary text-black hover:text-white
+}
+blockquote::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://protrance-backend-main.vercel.app/api/media/file/Vector-1.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: -1; 
+}

@@ -4,7 +4,19 @@ import dayjs from "dayjs";
 import Image from "next/image";
 import Link from "next/link";
 import Lenis from "@studio-freight/lenis";
-const Blogdetails = ({ bloAboutTitle,blogContent, cta_image, cta_title , cta_description, cta_BTN , blogcreatedAt, blogupdatedAt, gutenbergData }) => {
+import BlogFaq from "./BlogFaq";
+const Blogdetails = ({
+  bloAboutTitle,
+  blogContent,
+  cta_image,
+  cta_title,
+  cta_description,
+  cta_BTN,
+  blogcreatedAt,
+  blogupdatedAt,
+  gutenbergData,
+  FAQ,
+}) => {
   const [headers, setHeaders] = useState([]);
   const [updatedHTML, setUpdatedHTML] = useState("");
 
@@ -158,13 +170,13 @@ const Blogdetails = ({ bloAboutTitle,blogContent, cta_image, cta_title , cta_des
                   </li>
                 )
             )}
-            {/* {FAQ.faq_main_faq_show && (
+            {FAQ.enableFAQ && (
               <li>
-                <a href={`#faq`} className="text-teal-700">
-                  {FAQ?.faq_main_title}
+                <a href={`#faq`} className="text-[#1a609a]">
+                  {FAQ?.title}
                 </a>
               </li>
-            )} */}
+            )}
           </ul>
           {updatedHTML && (
             <div className="flex justify-between flex-col-reverse lg:flex-row gap-8">
@@ -176,6 +188,11 @@ const Blogdetails = ({ bloAboutTitle,blogContent, cta_image, cta_title , cta_des
           )}
         </div>
       </section>
+      <BlogFaq
+        title={FAQ.title}
+        SectionShow={FAQ.enableFAQ}
+        ArrayData={FAQ.nestedfaq}
+      />
     </>
   );
 };

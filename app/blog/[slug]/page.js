@@ -17,6 +17,7 @@ const page = async({params}) => {
           if (!SingleBlogData) {
           return <div>No data available.</div>;
         }
+        console.log('SingleBlogData', SingleBlogData)
 
   return (
     <>
@@ -49,6 +50,7 @@ const page = async({params}) => {
         blogcreatedAt={SingleBlogData.docs[0].createdAt}
         blogupdatedAt={SingleBlogData.docs[0].updatedAt}
         gutenbergData={SingleBlogData.docs[0].contents.Gutenberg_html}
+        FAQ={SingleBlogData.docs[0].faq}
       />
     </>
   );
