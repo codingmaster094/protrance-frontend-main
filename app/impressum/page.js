@@ -15,7 +15,15 @@ const page = async () => {
   }
   return (
     <>
-      <h1>{ImpressumData.title}</h1>
+      <section className="py-5 md:py-10 2xl:py-[100px] sec-page-content bg-[#0c2a35] text-white">
+        <div className="container">
+          <div
+            dangerouslySetInnerHTML={{
+              __html: ImpressumData.contents.Gutenberg_html,
+            }}
+          ></div>
+        </div>
+      </section>
     </>
   );
 };

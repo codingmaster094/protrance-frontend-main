@@ -162,3 +162,7 @@ blockquote::before {
   background-size: contain;
   z-index: -1; 
 }
+
+.sec-page-content p{
+   color: white;
+}
