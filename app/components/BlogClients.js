@@ -7,6 +7,10 @@ import "swiper/css/pagination";
 import Link from "next/link";
 
 const BlogClients = ({ title, ImageArray }) => {
+   let processedSlides = [...ImageArray];
+   while (processedSlides.length < 6 && ImageArray.length > 0) {
+     processedSlides = [...processedSlides, ...ImageArray];
+   }
   return (
     <section className="py-5 md:py-10 2xl:py-[100px]">
       <div className="container max-w-[1440px] mx-auto">
@@ -32,7 +36,7 @@ const BlogClients = ({ title, ImageArray }) => {
             1200: { slidesPerView: 5 },
           }}
         >
-          {ImageArray.map((slide) => (
+          {processedSlides.map((slide) => (
             <SwiperSlide key={slide.id} className="py-4">
               <div className="flex items-center justify-center py-5 px-8  shadow-[0px_0px_10px_0px_#EDEDED]">
                 {slide.link.url ? (
