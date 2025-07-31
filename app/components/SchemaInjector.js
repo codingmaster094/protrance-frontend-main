@@ -1,21 +1,23 @@
-"use client";
-import { useEffect } from "react";
+'use client'
+import { useEffect } from 'react'
 
-export default function SchemaInjector({ schemaJSON }) {
+export default function SchemaInjector({ structuredData }) {
   useEffect(() => {
-    if (!schemaJSON) return;
+    if (!structuredData) return;
 
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = "payload-schema";
-    script.textContent = schemaJSON;
-
-    // Remove old script if it exists
-    const oldScript = document.getElementById("payload-schema");
-    if (oldScript) oldScript.remove();
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'payload-schema';
+    script.textContent = JSON.stringify(structuredData);
 
     document.head.appendChild(script);
-  }, [schemaJSON]);
+
+    return () => {
+      const existing = document.getElementById('payload-schema');
+      if (existing) existing.remove();
+    };
+  }, [structuredData]);
 
   return null;
 }
+
