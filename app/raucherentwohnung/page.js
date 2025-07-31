@@ -7,11 +7,15 @@ import Protrance from '../components/Protrance'
 import Reviews from "../ReviewData/page";
 import FAQ from "../components/FAQ"
 import Raucherentwöhnung from '../components/Raucherentwöhnung'
-import AllData from "../untils/AllDataFatch";
+import Alldata from "../untils/AllDataFatch";
+import dynamic from "next/dynamic";
+const SchemaInjector = dynamic(() => import("../components/SchemaInjector"));
 const page = async() => {
 	let raucherentwohnungData;
+   let schemaJSON = null;
   try {
-    raucherentwohnungData = await AllData("/raucherentwohnung");
+    raucherentwohnungData = await Alldata("/raucherentwohnung");
+    schemaJSON = JSON.stringify(raucherentwohnungData.seo.structuredData);
   } catch (error) {
     console.error("Error fetching data:", error);
     return <div>Error loading data.</div>;
@@ -22,6 +26,7 @@ const page = async() => {
   }
   return (
     <>
+      <SchemaInjector schemaJSON={schemaJSON} />
       <Banner
         Heading={raucherentwohnungData.hero.text}
         Banner={raucherentwohnungData.hero.heroImage.url}
@@ -91,3 +96,21 @@ const page = async() => {
 }
 
 export default page
+
+export async function generateMetadata() {
+  const metadata = await Alldata("/raucherentwohnung");
+
+  const title = metadata?.seo?.meta?.title || "Default Title";
+  const description = metadata?.seo?.meta?.description || "Default Description";
+  const canonical =
+    metadata?.seo?.meta?.canonicalUrl ||
+    "https://www.heilpraktikerin-nicolli.de";
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical,
+    },
+  };
+}

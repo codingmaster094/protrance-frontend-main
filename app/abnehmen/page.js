@@ -7,11 +7,16 @@ import Protrance from '../components/Protrance'
 import Reviews from "../ReviewData/page";
 import FAQ from "../components/FAQ"
 import Hypnosisweightloss from '../components/hypnosisweightloss'
-import AllData from "../untils/AllDataFatch";
+import Alldata from "../untils/AllDataFatch";
+import dynamic from "next/dynamic";
+const SchemaInjector = dynamic(() => import("../components/SchemaInjector"));
 const Page = async() => {
 	let AbnehmenPageData;
+   let schemaJSON = null;
+
   try {
-    AbnehmenPageData = await AllData("/abnehmen");
+    AbnehmenPageData = await Alldata("/abnehmen");
+        schemaJSON = JSON.stringify(AbnehmenPageData.seo.structuredData);
   } catch (error) {
     console.error("Error fetching data:", error);
     return <div>Error loading data.</div>;
@@ -23,6 +28,7 @@ const Page = async() => {
 	
   return (
     <>
+      <SchemaInjector schemaJSON={schemaJSON} />
       <Banner
         Heading={AbnehmenPageData.hero.text}
         Banner={AbnehmenPageData.hero.heroImage.url}
@@ -76,3 +82,21 @@ const Page = async() => {
 }
 
 export default Page
+
+export async function generateMetadata() {
+  const metadata = await Alldata("/abnehmen");
+
+  const title = metadata?.seo?.meta?.title || "Default Title";
+  const description = metadata?.seo?.meta?.description || "Default Description";
+  const canonical =
+    metadata?.seo?.meta?.canonicalUrl ||
+    "https://www.heilpraktikerin-nicolli.de";
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical,
+    },
+  };
+}

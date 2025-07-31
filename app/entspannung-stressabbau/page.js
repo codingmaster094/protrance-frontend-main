@@ -7,11 +7,15 @@ import Protrance from '../components/Protrance'
 import Reviews from "../ReviewData/page";
 import FAQ from "../components/FAQ"
 import LongTermEffects  from '../components/LongTermEffects'
-import AllData from "../untils/AllDataFatch";
+import Alldata from "../untils/AllDataFatch";
+import dynamic from "next/dynamic";
+const SchemaInjector = dynamic(() => import("../components/SchemaInjector"));
 const page = async() => {
 	let Entspannung_StressabbauData;
+   let schemaJSON = null;
 	  try {
-		Entspannung_StressabbauData = await AllData("/entspannung_StressabbauPage");
+		Entspannung_StressabbauData = await Alldata("/entspannung_StressabbauPage");
+    schemaJSON = JSON.stringify(Entspannung_StressabbauData.seo.structuredData);
 	  } catch (error) {
 		console.error("Error fetching data:", error);
 		return <div>Error loading data.</div>;
@@ -24,6 +28,7 @@ const page = async() => {
 	  
   return (
     <>
+      <SchemaInjector schemaJSON={schemaJSON} />
       <Banner
         Heading={Entspannung_StressabbauData.hero.text}
         Banner={Entspannung_StressabbauData.hero.heroImage.url}
@@ -81,3 +86,21 @@ const page = async() => {
 }
 
 export default page
+
+export async function generateMetadata() {
+  const metadata = await Alldata("/entspannung_StressabbauPage");
+
+  const title = metadata?.seo?.meta?.title || "Default Title";
+  const description = metadata?.seo?.meta?.description || "Default Description";
+  const canonical =
+    metadata?.seo?.meta?.canonicalUrl ||
+    "https://www.heilpraktikerin-nicolli.de";
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical,
+    },
+  };
+}

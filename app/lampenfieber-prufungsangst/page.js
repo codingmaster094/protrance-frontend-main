@@ -9,12 +9,17 @@ import Protrance from '../components/Protrance'
 import FAQ from "../components/FAQ"
 import LampenfieberPrüfungsangst from "../components/LampenfieberPrüfungsangst"
 import Alldata from "../untils/AllDataFatch";
-
+import dynamic from "next/dynamic";
+const SchemaInjector = dynamic(() => import("../components/SchemaInjector"));
 const page = async() => {
 	let lampenfieber_prufungsangstData;
+   let schemaJSON = null;
 		  try {
 			lampenfieber_prufungsangstData = await Alldata(
         "/lampenfieber_Prufungsangst"
+      );
+      schemaJSON = JSON.stringify(
+        lampenfieber_prufungsangstData.seo.structuredData
       );
 		  } catch (error) {
 			console.error("Error fetching data:", error);
@@ -28,6 +33,7 @@ const page = async() => {
 		  
   return (
     <>
+      <SchemaInjector schemaJSON={schemaJSON} />
       <Banner
         Heading={lampenfieber_prufungsangstData.hero.text}
         Banner={lampenfieber_prufungsangstData.hero.heroImage.url}
@@ -92,3 +98,20 @@ const page = async() => {
 }
 
 export default page 
+export async function generateMetadata() {
+  const metadata = await Alldata("/lampenfieber_Prufungsangst");
+
+  const title = metadata?.seo?.meta?.title || "Default Title";
+  const description = metadata?.seo?.meta?.description || "Default Description";
+  const canonical =
+    metadata?.seo?.meta?.canonicalUrl ||
+    "https://www.heilpraktikerin-nicolli.de";
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical,
+    },
+  };
+}

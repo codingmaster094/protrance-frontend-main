@@ -3,12 +3,18 @@ import AllPost from '../../untils/All PostFatch';
 import Blogdetails from '../../components/Blogdetails';
 import Blogbanner from '../../components/Blogbanner';
 import BlogClients from '../../components/BlogClients';
-
+import dynamic from "next/dynamic";
+const SchemaInjector = dynamic(() => import("../../components/SchemaInjector"));
 const page = async({params}) => {
     const {slug} = await params
     let SingleBlogData;
+     let schemaJSON = null;
+
           try {
             SingleBlogData = await AllPost(`/posts?where[slug][equals]=${slug}`);
+            schemaJSON = JSON.stringify(
+              SingleBlogData.docs[0].seo.structuredData
+            );
           } catch (error) {
             console.error("Error fetching data:", error);
             return <div>Error loading data.</div>;
@@ -17,10 +23,10 @@ const page = async({params}) => {
           if (!SingleBlogData) {
           return <div>No data available.</div>;
         }
-        console.log('SingleBlogData', SingleBlogData)
 
   return (
     <>
+      <SchemaInjector schemaJSON={schemaJSON} />
       <Blogbanner
         Heading={SingleBlogData.docs[0].hero.text}
         Banner={SingleBlogData.docs[0].hero.heroImage.url}
@@ -57,3 +63,21 @@ const page = async({params}) => {
 }
 
 export default page
+
+export async function generateMetadata({params}) {
+  const { slug } = await params;
+  const metadata = await AllPost(`/posts?where[slug][equals]=${slug}`);
+  const title = metadata.docs[0]?.seo?.meta?.title || "Default Title";
+  const description = metadata.docs[0]?.seo?.meta?.description || "Default Description";
+  const canonical =
+    metadata.docs[0]?.seo?.meta?.canonicalUrl ||
+    "https://www.heilpraktikerin-nicolli.de";
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical,
+    },
+  };
+}

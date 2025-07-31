@@ -146,7 +146,7 @@
    @apply list-disc;
 }
 blockquote {
-   @apply px-[30px] py-20 bg-primary text-white my-[30px] mx-0 rounded-3xl flex flex-col justify-center items-center text-center relative z-10;
+   @apply px-[30px] py-20 bg-primary text-white my-[30px] mx-0 rounded-3xl flex flex-col justify-center items-center !text-center relative z-10;
 }
 blockquote a{
    @apply rounded-full py-2 px-4 xsm:px-8 font-medium transition-all inline-flex items-center justify-center mt-4 xsm:mt-6 bg-white hover:bg-secondary text-black hover:text-white
@@ -159,10 +159,16 @@ blockquote::before {
   background-image: url('https://protrance-backend-main.vercel.app/api/media/file/Vector-1.svg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  /* background-size: contain; */
   z-index: -1; 
 }
 
 .sec-page-content p{
    color: white;
+}
+.payload-richtext {
+   overflow: hidden;
+}
+.lexical-table-container {
+   overflow: auto;
 }

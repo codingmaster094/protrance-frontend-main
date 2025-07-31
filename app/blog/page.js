@@ -4,12 +4,17 @@ import Clients from "../components/Clients"
 import Blog from "../components/Blog"
 import Alldata from "../untils/AllDataFatch"
 import AllPost from '../untils/All PostFatch'
+import dynamic from "next/dynamic";
+const SchemaInjector = dynamic(() => import("../components/SchemaInjector"));
 const page = async() => {
 				  let BlogData;
           let AllpostData
+           let schemaJSON = null;
+
 	  try {
 		BlogData = await Alldata("/blog");
 		AllpostData = await AllPost("/posts");
+     schemaJSON = JSON.stringify(BlogData.seo.structuredData);
 	  } catch (error) {
 		console.error("Error fetching data:", error);
 		return <div>Error loading data.</div>;
@@ -22,6 +27,7 @@ const page = async() => {
 
   return (
     <>
+      <SchemaInjector schemaJSON={schemaJSON} />
       <Banner
         Heading={BlogData.hero.text}
         Banner={BlogData.hero.heroImage.url}
@@ -43,3 +49,20 @@ const page = async() => {
 }
 
 export default page
+export async function generateMetadata() {
+  const metadata = await Alldata("/blog");
+
+  const title = metadata?.seo?.meta?.title || "Default Title";
+  const description = metadata?.seo?.meta?.description || "Default Description";
+  const canonical =
+    metadata?.seo?.meta?.canonicalUrl ||
+    "https://www.heilpraktikerin-nicolli.de";
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical,
+    },
+  };
+}
