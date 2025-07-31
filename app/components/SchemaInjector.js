@@ -5,20 +5,21 @@ export default function SchemaInjector({ schemaJSON }) {
   useEffect(() => {
     if (!schemaJSON) return;
 
-    // Remove old script if it exists BEFORE adding the new one
-    const oldScript = document.getElementById("payload-schema");
-    if (oldScript) oldScript.remove();
+    const existingScript = document.getElementById("payload-schema");
+    if (existingScript) existingScript.remove();
 
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.id = "payload-schema";
-    script.textContent = JSON.stringify(schemaJSON);
+
+    script.textContent =
+      typeof schemaJSON === "string" ? schemaJSON : JSON.stringify(schemaJSON);
+
     document.head.appendChild(script);
 
-    // Optional: Cleanup on unmount
     return () => {
-      const old = document.getElementById("payload-schema");
-      if (old) old.remove();
+      const cleanup = document.getElementById("payload-schema");
+      if (cleanup) cleanup.remove();
     };
   }, [schemaJSON]);
 
