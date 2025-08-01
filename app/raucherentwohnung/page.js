@@ -24,7 +24,6 @@ const page = async() => {
   if (!raucherentwohnungData) {
     return <div>No data available.</div>;
   }
-  console.log("raucherentwohnungData", raucherentwohnungData);
   return (
     <>
       <SchemaInjector schemaJSON={schemaJSON} />

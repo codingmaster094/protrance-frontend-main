@@ -33,9 +33,9 @@ Inner_description
             <div className="flex flex-col gap-4">
               <h3
                 className="text-lg lg:text-2xl"
-                dangerouslySetInnerHTML={{ __html: title || "" }}
+                dangerouslySetInnerHTML={{ __html: title  }}
               ></h3>
-              <div dangerouslySetInnerHTML={{ __html: main_description || ''}}></div>
+              <div dangerouslySetInnerHTML={{ __html: main_description}}></div>
               <ul className="list-disc marker:text-primary ms-5 text-accent1 text-opacity-80 p">
                 {Sub_description.map((li, i) => {
                   return <li key={i}>{li.children[0].text}</li>
