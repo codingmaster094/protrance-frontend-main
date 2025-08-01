@@ -18,14 +18,14 @@ const Time_line = ({ title, description, YearArray }) => {
               <div className="row" key={rowIndex}>
                 {YearArray
                   .slice(rowIndex * 4, rowIndex * 4 + 4)
-                  .map((item, idx) => {
+                  .map((item, i) => {
                     const year = item.Year;
                     const text =
                       item.description?.root?.children?.[0]?.children?.[0]
                         ?.text ?? "";
 
                     return (
-                      <div className="box relative w-full" key={item.id}>
+                      <div className="box relative w-full" key={i}>
                         <div className="border border-black/10 rounded-[20px] p-4 md:p-6 shadow-[0_4.8px_24.4px_0_rgba(19,16,34,.1)] sm:max-w-[267px] mx-auto">
                           <span className="text-50 leading-[.7] mb-2 lg:mb-5 inline-block font-Josefin text-accent">
                             {year}
