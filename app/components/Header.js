@@ -9,7 +9,7 @@ import Lenis from "@studio-freight/lenis";
 
 const Header = ({ Menus, HeaderData }) => {
   const pathname = usePathname();
-  
+
   const [isFixed, setIsFixed] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
@@ -58,14 +58,13 @@ const Header = ({ Menus, HeaderData }) => {
   }, []);
   return (
     <header
-      className={`transition-all duration-300 p-4 z-[999] ${
-        isFixed
+      className={`transition-all duration-300 p-4 z-[999] ${isFixed
           ? "top-0 bg-primary shadow left-0 w-full fixed"
           : "bg-transparent fixed w-full"
-      }`}
+        }`}
     >
       <div className="container">
-        <nav className="flex w-full px-[15px] 2xl:px-[calc(9rem-4px)] py-4 justify-between items-center">
+        <nav className="flex w-full py-4 justify-between items-center">
           <div className="logo">
             <Link href="/" aria-label="logo" role="logo">
               <Image
@@ -79,9 +78,8 @@ const Header = ({ Menus, HeaderData }) => {
 
           {/* Menu Container */}
           <div
-            className={`side-menu fixed opacity-0 z-[999] px-4 w-72 -left-full top-0 bg-primary h-full pt-16 border-r-4 border-gray-light lg:bg-transparent  lg:border-none  lg:opacity-100 lg:w-auto lg:static  lg:flex lg:items-center transition-all duration-[0.4s] ease-in lg:transition-none lg:pt-0  lg:justify-center ${
-              menuOpen ? "left-0 opacity-100" : ""
-            }`}
+            className={`side-menu fixed opacity-0 z-[999] px-4 w-72 -left-full top-0 bg-primary h-full pt-16 border-r-4 border-gray-light lg:bg-transparent  lg:border-none  lg:opacity-100 lg:w-auto lg:static  lg:flex lg:items-center transition-all duration-[0.4s] ease-in lg:transition-none lg:pt-0  lg:justify-center ${menuOpen ? "left-0 opacity-100" : ""
+              }`}
           >
             <span
               className="close block absolute top-4 right-4 w-8 h-8 lg:hidden cursor-pointer"
@@ -95,17 +93,17 @@ const Header = ({ Menus, HeaderData }) => {
             </span>
 
             {/* Menu Items */}
-            <ul className="flex gap-4 text-white font-medium transition-all duration-700 ease-in-out flex-col lg:flex-row lg:py-4 lg:bg-white lg:bg-opacity-15 lg:rounded-full">
+            <ul className="flex text-white font-medium transition-all duration-700 ease-in-out flex-col lg:flex-row lg:bg-white/15 lg:rounded-[20px] px-5 py-[11px] gap-8
+             lg:hover:bg-secondary backdrop-blur-[40px]">
               {Menus.map((item) => {
                 const hasSubmenu = item.submenus?.length > 0;
                 return (
                   <li
                     key={item.id}
-                    className={`relative ${
-                      isActive(item.link?.url) && !hasSubmenu
-                        ? "text-[#9a1a60]"
+                    className={`relative ${isActive(item.link?.url) && !hasSubmenu
+                        ? ""
                         : ""
-                    }`}
+                      }`}
                   >
                     {hasSubmenu ? (
                       <div
@@ -133,9 +131,8 @@ const Header = ({ Menus, HeaderData }) => {
                         >
                           {item.link?.label?.trim()}
                           <span
-                            className={`transition-transform duration-300 ${
-                              openDropdown ? "rotate-180" : "rotate-0"
-                            }`}
+                            className={`transition-transform duration-300 ${openDropdown ? "rotate-180" : "rotate-0"
+                              }`}
                           >
                             <svg
                               width={24}
@@ -156,16 +153,15 @@ const Header = ({ Menus, HeaderData }) => {
                         </button>
 
                         {openDropdown && (
-                          <ul className="staic lg:absolute left-0 mt-2 bg-white text-black shadow-lg rounded w-40 z-[999]">
+                          <ul className="staic lg:absolute left-0 mt-4 bg-white text-black shadow-lg rounded min-w-40 z-[999] overflow-hidden">
                             {item.submenus[0]?.links?.map((submenu) => (
                               <li key={submenu.id}>
                                 <Link
                                   href={submenu.link?.url || "#"}
-                                  className={`block px-4 py-2 hover:bg-gray-200 ${
-                                    isActive(submenu.link?.url)
+                                  className={`block px-4 py-2 hover:bg-gray-200 ${isActive(submenu.link?.url)
                                       ? "bg-gray-100"
                                       : ""
-                                  }`}
+                                    }`}
                                 >
                                   {submenu.link?.label}
                                 </Link>
@@ -177,9 +173,8 @@ const Header = ({ Menus, HeaderData }) => {
                     ) : (
                       <Link
                         href={item.link?.url || "#"}
-                        className={`block ${
-                          isActive(item.link?.url) ? "text-[#9a1a60]" : ""
-                        }`}
+                        className={`block ${isActive(item.link?.url) ? "" : ""
+                          }`}
                         arial-label="menu-link"
                         role="link"
                       >

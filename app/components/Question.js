@@ -26,7 +26,7 @@ const Question = ({ cta_image , title, description, BTN }) => {
                 href={BTN.url}
                 aria-label="btn-link"
                 role="link"
-                className="btn btn-primary-alt"
+                className="btn bg-white text-black"
               >
                 {BTN.label}
               </Link>

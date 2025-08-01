@@ -1,13 +1,9 @@
-'use client'
+"use client";
 import Lenis from "@studio-freight/lenis";
-import Image from 'next/image'
-import Link from 'next/link';
-import React, { useEffect, useRef } from 'react'
-const Contact = ({
-	title,
-description,
-ImageArray
-}) => {
+import Image from "next/image";
+import Link from "next/link";
+import React, { useEffect, useRef } from "react";
+const Contact = ({ title, description, ImageArray }) => {
   const lenisRef = useRef(null);
   useEffect(() => {
     const lenis = new Lenis({
@@ -113,6 +109,6 @@ ImageArray
       </div>
     </section>
   );
-}
+};
 
-export default Contact
+export default Contact;

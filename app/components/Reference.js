@@ -2,18 +2,19 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const Reference = ({Image_Data ,Main_title,Main_description}) => { 
+const Reference = ({ Image_Data, Main_title, Main_description }) => {
   return (
-    <section className="py-5 md:py-10 2xl:py-[100px]">
+    <section>
       <div className="container">
-        <div className="flex flex-col mb-6 lg:mb-10 xl:mb-20 text-center gap-4  mx-auto reference-blog">
-          {Main_title && 
-          <h2 dangerouslySetInnerHTML={{ __html: Main_title }}></h2>
+        <div className="flex flex-col text-center gap-4  mx-auto reference-blog">
+          {Main_title &&
+            <h2 dangerouslySetInnerHTML={{ __html: Main_title }}></h2>
           }
           {Main_description && (
             <p dangerouslySetInnerHTML={{ __html: Main_description }}></p>
           )}
         </div>
+        <div className='h-8 lg:h-[64px]'></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {Image_Data.map((item, index) => (
             <div

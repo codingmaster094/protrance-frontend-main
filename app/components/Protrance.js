@@ -1,38 +1,48 @@
 'use client';
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import {Navigation,Pagination } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import Link from 'next/link';
-import Nextarrow from '../../public/images/arrow-left-long.png';
-import prevarrow from '../../public/images/arrow-right.png';
+import NextArrow from '../../public/images/arrow-left-long.png';
+import prevArrow from '../../public/images/arrow-right.png';
+import { useRef } from "react";
 
-const Protrance = ({title,ImageArray}) => {
+const Protrance = ({ title, ImageArray }) => {
+
+  const swiperRef = useRef(null);
+
+  const goNext = () => {
+    if (swiperRef.current) swiperRef.current.slideNext();
+  };
+
+  const goPrev = () => {
+    if (swiperRef.current) swiperRef.current.slidePrev();
+  };
+
   let processedSlides = [...ImageArray];
   while (processedSlides.length < 4 && ImageArray.length > 0) {
     processedSlides = [...processedSlides, ...ImageArray];
   }
   return (
-    <section className="py-5 md:py-10 2xl:py-[100px]">
+    <section>
       <div className="container">
-        <div className="flex  mb-8 md:mb-10 lg:mb-20  justify-center text-center">
+        <div className="flex justify-center text-center">
           <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
         </div>
+        <div className='h-8 lg:h-[64px]'></div>
         <div className="flex relative">
           <Swiper
-            className="w-full   xl:!ms-[120px] xl:!me-[120px] !pb-0 sm:!pb-[80px] protrance-slider"
+            className="w-full  xl:!ms-[120px] xl:!me-[120px] protrance-slider"
             modules={[Pagination, Navigation]}
-            loop={false}
+            loop={true}
             pagination={{ clickable: true }}
             spaceBetween={24}
             slidesPerView={3}
-            navigation={{
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
-            }}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
             breakpoints={{
               0: { slidesPerView: 1 },
               600: { slidesPerView: 2 },
@@ -76,12 +86,17 @@ const Protrance = ({title,ImageArray}) => {
                 );
               })}
             </div>
-
-            <div className="swiper-button-prev !hidden sm:!block absolute !left-[unset] !top-[unset] !bottom-[20px]  sm:!bottom-[50px] !right-0 after:!hidden">
-              <Image src={Nextarrow} alt="next-arrow" />
-            </div>
-            <div className="swiper-button-next !hidden sm:!block absolute !left-[unset] !top-[unset] !bottom-[20px] sm:!bottom-[50px] !right-[50px] after:!hidden">
-              <Image src={prevarrow} alt="Prevarrow" />
+            <div className="absolute bottom-0 right-0 justify-center gap-6 pb-1 hidden sm:flex">
+              <button
+                onClick={goPrev}
+              >
+                <Image src={prevArrow} alt="Prev arrow" />
+              </button>
+              <button
+                onClick={goNext}
+              >
+                <Image src={NextArrow} alt="Next arrow" />
+              </button>
             </div>
           </Swiper>
         </div>

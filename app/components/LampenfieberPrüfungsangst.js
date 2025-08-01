@@ -2,21 +2,22 @@ import React from 'react'
 import Image from 'next/image'
 
 const LampenfieberPrüfungsangst = (
-	{
-headding,
-ImageUrl,
-title,
-description1,
-description2,
-subdescription
-	}
+  {
+    headding,
+    ImageUrl,
+    title,
+    description1,
+    description2,
+    subdescription
+  }
 ) => {
   return (
-    <section className="py-5 md:py-10 2xl:py-[100px]">
+    <section>
       <div className="container">
-        <div className="flex flex-col mb-6 lg:mb-10 xl:mb-20 text-left gap-4  mx-auto">
+        <div className="flex flex-col text-left gap-4 mx-auto">
           <h2 dangerouslySetInnerHTML={{ __html: headding }}></h2>
         </div>
+        <div className='h-[clamp(2.5rem,2rem+2.5vw,5rem)]'></div>
         <div className="flex gap-8 2xl:gap-20 flex-col lg:flex-row">
           <div className="flex flex-col w-full sm:w-[65%] lg:w-[40%] rounded-[32px] overflow-hidden h-[400px] xl:h-[610px]">
             <Image
@@ -39,11 +40,11 @@ subdescription
                   return <li key={i}>{li.children[0].text}</li>;
                 })}
               </ul>
-            
-                {description2.map((p, i) => {
-                  return <p key={i}>{p.children[0].text}</p>;
-                })}
-             
+
+              {description2.map((p, i) => {
+                return <p key={i}>{p.children[0].text}</p>;
+              })}
+
             </div>
           </div>
         </div>

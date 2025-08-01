@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const Blog = ({title ,  AllPostDetails }) => {
+const Blog = ({ title, AllPostDetails }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredPosts, setFilteredPosts] = useState(AllPostDetails);
 
@@ -18,9 +18,9 @@ const Blog = ({title ,  AllPostDetails }) => {
   };
 
   return (
-    <section className="py-5 md:py-10 2xl:py-[100px]">
+    <section>
       <div className="container">
-        <div className="flex flex-col md:flex-row gap-4 lg:gap-6 mb-8 md:mb-10 lg:mb-20 justify-between text-center items-start md:items-center">
+        <div className="flex flex-col md:flex-row gap-4 lg:gap-6 justify-between text-center items-start md:items-center">
           {title && <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>}
           <form onSubmit={handleSubmit}>
             <div className="flex border border-1 border-[#545454] border-opacity-20 rounded-3xl gap-4 p-2 w-full md:w-[586px] justify-between">
@@ -43,7 +43,7 @@ const Blog = ({title ,  AllPostDetails }) => {
             </div>
           </form>
         </div>
-
+        <div className='h-[clamp(2.5rem,-1.5789rem+6.5789vw,5rem)]'></div>
         <div className="flex flex-col">
           <div className="grid grid-cols-auto sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.length > 0 ? (

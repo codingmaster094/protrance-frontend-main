@@ -4,9 +4,9 @@ import React from "react";
 const BlogFaq = ({ SectionShow, title, ArrayData }) => {
   return (
     SectionShow && (
-      <section className="container max-w-[1440px] mx-auto mt-4 pb-10" id="faq">
+      <section className="container max-w-[1440px] mx-auto mt-4" id="faq">
         <div className=" w-full max-w-[1400px]">
-          <div className="flex mb-8 md:mb-10 lg:mb-20 justify-left text-left">
+          <div className="flex justify-left text-left">
             <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
           </div>
           <div className="flex w-full">

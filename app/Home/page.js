@@ -11,8 +11,8 @@ import Protrance from '../components/Protrance'
 import FAQ from '../components/FAQ'
 import AllData from "../untils/AllDataFatch"
 
-const page = async() => {
-	let HomePageData;
+const page = async () => {
+  let HomePageData;
   try {
     HomePageData = await AllData("/home");
   } catch (error) {
@@ -33,10 +33,12 @@ const page = async() => {
         container={HomePageData.hero.container_Hight}
         Image_Position={HomePageData.hero.Image_Position}
       />
+      <div className='h-[clamp(2.5rem,2rem+2.5vw,5rem)]'></div>
       <Clients
         title={HomePageData.partnerlogo.title}
         ImageArray={HomePageData.partnerlogo.nestedSections}
       />
+      <div className='h-[clamp(4.375rem,3.5rem+4.375vw,8.75rem)]'></div>
       <Service
         title={HomePageData.abouts.title}
         description={
@@ -50,10 +52,12 @@ const page = async() => {
         BTN={HomePageData.abouts.link}
         ImageArry={HomePageData.abouts.nestedSections}
       />
+      <div className='h-[clamp(3.5rem,2.8rem+3.5vw,7rem)]'></div>
       <Counter
         title={HomePageData.protance_zahlen.title}
         ImageArray={HomePageData.protance_zahlen.nestedSections}
       />
+      <div className='h-[clamp(3.125rem,2.5rem+3.125vw,6.25rem)]'></div>
       <Question
         title={HomePageData.cta.title}
         description={
@@ -62,6 +66,7 @@ const page = async() => {
         BTN={HomePageData.cta.link}
         cta_image={HomePageData.cta.cta_image}
       />
+      <div className='h-[clamp(3.5rem,2.8rem+3.5vw,7rem)]'></div>
       <Benefits
         title={HomePageData.service.title}
         description={
@@ -69,7 +74,9 @@ const page = async() => {
         }
         ImageArray={HomePageData.service.nestedService}
       />
+      <div className='h-[clamp(5.375rem,4.3rem+5.375vw,10.75rem)]'></div>
       <Reviews params={HomePageData.Reviews.enableReviews} />
+      <div className='h-[clamp(5.375rem,4.3rem+5.375vw,10.75rem)]'></div>
       <Reference
         Main_title={HomePageData.Meine_Referenzen.title}
         Main_description={
@@ -78,6 +85,7 @@ const page = async() => {
         }
         Image_Data={HomePageData.Meine_Referenzen.nestedMeine_Referenzen}
       />
+      <div className='h-[clamp(3.5rem,2.8rem+3.5vw,7rem)]'></div>
       <Question
         title={HomePageData.cta2.title}
         description={
@@ -86,15 +94,18 @@ const page = async() => {
         BTN={HomePageData.cta2.link}
         cta_image={HomePageData.cta2.cta_image}
       />
+      <div className='h-[clamp(3.5rem,2.8rem+3.5vw,7rem)]'></div>
       <Protrance
         title={HomePageData.service2.title}
         ImageArray={HomePageData.service2.nestedService}
       />
+      <div className='h-[clamp(6.6875rem,5.35rem+6.6875vw,13.375rem)]'></div>
       <FAQ
         title={HomePageData.faq.title}
         SectionShow={HomePageData.faq.enableFAQ}
         ArrayData={HomePageData.faq.nestedfaq}
       />
+      <div className='h-[clamp(3.5rem,2.8rem+3.5vw,7rem)]'></div>
     </>
   );
 }

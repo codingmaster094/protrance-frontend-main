@@ -12,7 +12,7 @@ const BlogClients = ({ title, ImageArray }) => {
      processedSlides = [...processedSlides, ...ImageArray];
    }
   return (
-    <section className="py-5 md:py-10 2xl:py-[100px]">
+    <section>
       <div className="container max-w-[1440px] mx-auto">
         <div className="flex mb-6 sm:mb-8  justify-center">
           <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
@@ -46,7 +46,7 @@ const BlogClients = ({ title, ImageArray }) => {
                       alt={slide.partnerImage.filename}
                       width={300}
                       height={81}
-                      className="w-full h-[80px] object-contain"
+                      className="w-full h-[clamp(2.5rem,-1.5789rem+6.5789vw,5rem)] object-contain"
                     />
                   </Link>
                 ) : (
@@ -55,7 +55,7 @@ const BlogClients = ({ title, ImageArray }) => {
                     alt={slide.partnerImage.filename}
                     width={300}
                     height={81}
-                    className="w-full h-[80px] object-contain"
+                    className="w-full h-[clamp(2.5rem,-1.5789rem+6.5789vw,5rem)] object-contain"
                   />
                 )}
               </div>

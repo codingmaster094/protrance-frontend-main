@@ -11,9 +11,9 @@ import Raucherentwöhnung from '../components/Raucherentwöhnung'
 import Alldata from "../untils/AllDataFatch";
 import dynamic from "next/dynamic";
 const SchemaInjector = dynamic(() => import("../components/SchemaInjector"));
-const page = async() => {
-	let SelbstfursorgeData;
-   let schemaJSON = null;
+const page = async () => {
+  let SelbstfursorgeData;
+  let schemaJSON = null;
   try {
     SelbstfursorgeData = await Alldata("/selbstfursorge");
     schemaJSON = JSON.stringify(SelbstfursorgeData.seo.structuredData);
@@ -26,7 +26,6 @@ const page = async() => {
     return <div>No data available.</div>;
   }
 
-  
   return (
     <>
       <SchemaInjector schemaJSON={schemaJSON} />
@@ -40,10 +39,12 @@ const page = async() => {
         container={SelbstfursorgeData.hero.container_Hight}
         Image_Position={SelbstfursorgeData.hero.Image_Position}
       />
+      <div className='h-[clamp(2.5rem,-1.5789rem+6.5789vw,5rem)]'></div>
       <Clients
         title={SelbstfursorgeData.partnerlogo.title}
         ImageArray={SelbstfursorgeData.partnerlogo.nestedSections}
       />
+      <div className='h-[clamp(6rem,4.8rem+6vw,12rem)]'></div>
       <Raucherentwöhnung
         ImageUrl={SelbstfursorgeData.abouts.aboutsImage.url}
         Heading={SelbstfursorgeData.abouts.heading}
@@ -64,6 +65,7 @@ const page = async() => {
           SelbstfursorgeData.abouts.inner_description.root.children[0].children
         }
       />
+      <div className='h-[clamp(5.375rem,4.3rem+5.375vw,10.75rem)]'></div>
       <Reference
         Main_title={SelbstfursorgeData.Meine_Referenzen.title}
         Main_description={
@@ -72,6 +74,7 @@ const page = async() => {
         }
         Image_Data={SelbstfursorgeData.Meine_Referenzen.nestedMeine_Referenzen}
       />
+      <div className='h-[clamp(3.5rem,2.8rem+3.5vw,7rem)]'></div>
       <Question
         title={SelbstfursorgeData.cta.title}
         description={
@@ -80,16 +83,20 @@ const page = async() => {
         cta_image={SelbstfursorgeData.cta.cta_image}
         BTN={SelbstfursorgeData.cta.link}
       />
+      <div className='h-[clamp(3.5rem,2.8rem+3.5vw,7rem)]'></div>
       <Protrance
         title={SelbstfursorgeData.service.title}
         ImageArray={SelbstfursorgeData.service.nestedService}
       />
+      <div className='h-[162px]'></div>
       <Reviews params={SelbstfursorgeData.Reviews.enableReviews} />
+      <div className='h-[224px]'></div>
       <FAQ
         title={SelbstfursorgeData.faq.title}
         ArrayData={SelbstfursorgeData.faq.nestedfaq}
         SectionShow={SelbstfursorgeData.faq.enableFAQ}
       />
+      <div className='h-[clamp(3.5rem,2.8rem+3.5vw,7rem)]'></div>
     </>
   );
 }

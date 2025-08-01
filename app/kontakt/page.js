@@ -5,20 +5,20 @@ import Contactform from "../components/Contactform"
 import Alldata from "../untils/AllDataFatch";
 import dynamic from "next/dynamic";
 const SchemaInjector = dynamic(() => import("../components/SchemaInjector"));
-const page = async() => {
-	let KontaktData;
-   let schemaJSON = null;
-	  try {
-		KontaktData = await Alldata("/kontakt");
+const page = async () => {
+  let KontaktData;
+  let schemaJSON = null;
+  try {
+    KontaktData = await Alldata("/kontakt");
     schemaJSON = JSON.stringify(KontaktData.seo.structuredData);
-	  } catch (error) {
-		console.error("Error fetching data:", error);
-		return <div>Error loading data.</div>;
-	  }
-	
-	  if (!KontaktData) {
-		return <div>No data available.</div>;
-	  }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return <div>Error loading data.</div>;
+  }
+
+  if (!KontaktData) {
+    return <div>No data available.</div>;
+  }
 
   return (
     <>
@@ -31,6 +31,7 @@ const page = async() => {
         container={KontaktData.hero.container_Hight}
         Image_Position={KontaktData.hero.Image_Position}
       />
+      <div className='h-[clamp(3.125rem,2.5rem+3.125vw,6.25rem)]'></div>
       <Contact
         title={KontaktData.Kontaktmöglichkeiten.headding}
         description={
@@ -39,6 +40,7 @@ const page = async() => {
         }
         ImageArray={KontaktData.Kontaktmöglichkeiten.nestedSections}
       />
+      <div className='h-[212px]'></div>
       <Contactform
         title={KontaktData.Kontaktmap.headding}
         description={
@@ -47,6 +49,7 @@ const page = async() => {
         Form_title={KontaktData.Kontaktmap.Form_title}
         MapImage={KontaktData.Kontaktmap.MapImage.url}
       />
+      <div className='h-[clamp(3.5rem,2.8rem+3.5vw,7rem)]'></div>
     </>
   );
 }

@@ -67,35 +67,35 @@ const Contactform = ({ title, description, Form_title, MapImage }) => {
     setLoading(false); // Store the correct answer
   }, []);
 
-const validateForm = () => {
-  let formErrors = {};
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const phoneRegex = /^\d{10}$/; // exactly 10 digits
+  const validateForm = () => {
+    let formErrors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\d{10}$/; // exactly 10 digits
 
-  if (!formData.name.trim()) {
-    formErrors.name = "Füll bitte dieses Feld aus.";
-  }
+    if (!formData.name.trim()) {
+      formErrors.name = "Füll bitte dieses Feld aus.";
+    }
 
-  if (!formData.phone.trim()) {
-    formErrors.phone = "Füll bitte dieses Feld aus.";
-  } else if (!phoneRegex.test(formData.phone.trim())) {
-    formErrors.phone = "Bitte gib eine gültige 10-stellige Telefonnummer ein.";
-  }
+    if (!formData.phone.trim()) {
+      formErrors.phone = "Füll bitte dieses Feld aus.";
+    } else if (!phoneRegex.test(formData.phone.trim())) {
+      formErrors.phone =
+        "Bitte gib eine gültige 10-stellige Telefonnummer ein.";
+    }
 
-  if (!formData.email.trim()) {
-    formErrors.email = "Füll bitte dieses Feld aus.";
-  } else if (!emailRegex.test(formData.email)) {
-    formErrors.email = "Bitte gib eine gültige E-Mail-Adresse ein.";
-  }
+    if (!formData.email.trim()) {
+      formErrors.email = "Füll bitte dieses Feld aus.";
+    } else if (!emailRegex.test(formData.email)) {
+      formErrors.email = "Bitte gib eine gültige E-Mail-Adresse ein.";
+    }
 
-  if (formData.selectedIcon !== correctAnswer) {
-    formErrors.selectedIcon = `Bitte wählen Sie das ${randomLabel} Symbol aus.`;
-  }
+    if (formData.selectedIcon !== correctAnswer) {
+      formErrors.selectedIcon = `Bitte wählen Sie das ${randomLabel} Symbol aus.`;
+    }
 
-  setErrors(formErrors);
-  return Object.keys(formErrors).length === 0;
-};
-
+    setErrors(formErrors);
+    return Object.keys(formErrors).length === 0;
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

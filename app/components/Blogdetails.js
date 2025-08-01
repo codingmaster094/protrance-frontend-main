@@ -83,9 +83,9 @@ const Blogdetails = ({
 
   return (
     <>
-      <section className="py-5 md:py-10 ">
-        <div className="container max-w-[1440px] mx-auto mt-4 pb-10">
-          <div className="flex justify-between md:flex-row flex-col gap-6 pt-10">
+      <section>
+        <div className="container max-w-[1440px] mx-auto">
+          <div className="flex justify-between md:flex-row flex-col gap-6">
             <p>
               <span>{dayjs(blogcreatedAt).format("DD.MM.YYYY")}</span> |
               <span>
@@ -152,7 +152,7 @@ const Blogdetails = ({
                   href={cta_BTN.url}
                   aria-label="btn-link"
                   role="link"
-                  className="btn btn-primary-alt"
+                  className="btn bg-white text-black"
                 >
                   {cta_BTN.label}
                 </Link>

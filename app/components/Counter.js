@@ -5,7 +5,7 @@
     ImageArray
  }) => {
   return (
-    <section className="pb-5 md:pb-10 2xl:pb-[100px]">
+    <section>
       <div className="container">
         <div className="flex flex-col items-center gap-6 md:gap-8 p-6 md:p-10 2xl:p-16 bg-background rounded-lg md:rounded-[32px]">
           <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
@@ -22,12 +22,12 @@
                     width={40}
                     height={40}
                   />
-                  <span className="font-light inline-block">{item.title}</span>
+                  <span className="font-light inline-block text-accent1">{item.title}</span>
                 </div>
-                <span className="text-[50px] font-semibold font-Josefin block leading-tight">
+                <span className="text-[50px] font-semibold font-Josefin block leading-tight text-accent">
                   {item.subtitle}
                 </span>
-                <p
+                <p className='text-accent1'
                   dangerouslySetInnerHTML={{
                     __html: item.description.root.children[0].children[0].text,
                   }}

@@ -16,7 +16,7 @@ const Service = () => {
 	 { id: 6, image: '/images/slide-img-3.webp', title: 'Image 1',heading:'Selbstfürsorge',description:'Zielt auf die Ursachen von Stress oder ' },
   ];
   return (
-     <section className='relative py-5 md:py-10 2xl:py-[100px] overflow-hidden'>
+     <section className='relative overflow-hidden'>
 		 <div className='container'>
 			<div className='flex flex-col gap-6 lg:gap-16 w-full max-w-[1248px] mx-auto'>
 				  <div className='flex shrink-0  flex-col gap-4'>
@@ -64,7 +64,7 @@ const Service = () => {
 													className='w-full object-cover !h-full'/>
 											</div>
 											<div className='flex  *:text-white w-full h-full items-end after:top-0 after:bottom-0 after:absolute after:w-full after:h-full after:bg-[linear-gradient(180deg,rgba(26,96,154,0)_56.21%,rgba(26,96,154,0.34644)_70.32%,rgba(26,96,154,0.64)_79.4%,#1A609A_93.94%)] transition-all duration-300'>
-													<div className='block relative z-10 *:text-white h-[110px] transition-all ease duration-500 p-6  w-full group-hover:h-[25%]'>
+													<div className='block relative z-10 *:text-white h-[125px] transition-all ease duration-500 p-6  w-full group-hover:h-[25%]'>
                                                         <h3 className='inline-block'>
 														  {slide.heading}
 													</h3>

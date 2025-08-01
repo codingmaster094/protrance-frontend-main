@@ -12,10 +12,10 @@ const Clients = ({ title, ImageArray }) => {
      processedSlides = [...processedSlides, ...ImageArray];
    }
   return (
-    <section className="py-5 md:py-10 2xl:py-[100px]">
+    <section>
       <div className="container">
-        <div className="flex mb-6 sm:mb-8  justify-center">
-          <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
+        <div className="flex mb-6 sm:mb-8 justify-center">
+          <h2 className='text-center' dangerouslySetInnerHTML={{ __html: title }}></h2>
         </div>
         <Swiper
           className="w-full client-slider"
@@ -38,24 +38,24 @@ const Clients = ({ title, ImageArray }) => {
         >
           {processedSlides.map((slide , i) => (
             <SwiperSlide key={i} className="py-4">
-              <div className="flex items-center justify-center py-5 px-8  shadow-[0px_0px_10px_0px_#EDEDED]">
+              <div className="flex items-center justify-center p-5 shadow-[0px_0px_10px_0px_#EDEDED] rounded-2xl">
                 {slide.link.url ? (
                   <Link href={slide.link.url} target={slide.link.target}>
                     <Image
                       src={slide.partnerImage.url}
                       alt={slide.partnerImage.filename}
-                      width={300}
-                      height={81}
-                      className="w-full h-[80px] object-contain"
+                      width={0}
+                      height={0}
+                      className="w-full h-auto"
                     />
                   </Link>
                 ) : (
                   <Image
                     src={slide.partnerImage.url}
                     alt={slide.partnerImage.filename}
-                    width={300}
-                    height={81}
-                    className="w-full h-[80px] object-contain"
+                    width={0}
+                    height={0}
+                    className="w-full h-auto"
                   />
                 )}
               </div>

@@ -5,24 +5,24 @@ import Blogbanner from '../../components/Blogbanner';
 import BlogClients from '../../components/BlogClients';
 import dynamic from "next/dynamic";
 const SchemaInjector = dynamic(() => import("../../components/SchemaInjector"));
-const page = async({params}) => {
-    const {slug} = await params
-    let SingleBlogData;
-     let schemaJSON = null;
+const page = async ({ params }) => {
+  const { slug } = await params
+  let SingleBlogData;
+  let schemaJSON = null;
 
-          try {
-            SingleBlogData = await AllPost(`/posts?where[slug][equals]=${slug}`);
-            schemaJSON = JSON.stringify(
-              SingleBlogData.docs[0].seo.structuredData
-            );
-          } catch (error) {
-            console.error("Error fetching data:", error);
-            return <div>Error loading data.</div>;
-          }
-        
-          if (!SingleBlogData) {
-          return <div>No data available.</div>;
-        }
+  try {
+    SingleBlogData = await AllPost(`/posts?where[slug][equals]=${slug}`);
+    schemaJSON = JSON.stringify(
+      SingleBlogData.docs[0].seo.structuredData
+    );
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return <div>Error loading data.</div>;
+  }
+
+  if (!SingleBlogData) {
+    return <div>No data available.</div>;
+  }
 
   return (
     <>
@@ -36,10 +36,12 @@ const page = async({params}) => {
         container={SingleBlogData.docs[0].hero.container_Hight}
         Image_Position={SingleBlogData.docs[0].hero.Image_Position}
       />
+      <div className='h-[clamp(2.5rem,-1.5789rem+6.5789vw,5rem)]'></div>
       <BlogClients
         title={SingleBlogData.docs[0].partnerlogo.title}
         ImageArray={SingleBlogData.docs[0].partnerlogo.nestedSections}
       />
+      <div className='h-[clamp(6rem,4.8rem+6vw,12rem)]'></div>
       <Blogdetails
         bloAboutTitle={SingleBlogData.docs[0].Blog_About.headding}
         blogContent={
@@ -58,13 +60,14 @@ const page = async({params}) => {
         gutenbergData={SingleBlogData.docs[0].contents.Gutenberg_html}
         FAQ={SingleBlogData.docs[0].faq}
       />
+      <div className='h-[clamp(3.5rem,2.8rem+3.5vw,7rem)]'></div>
     </>
   );
 }
 
 export default page
 
-export async function generateMetadata({params}) {
+export async function generateMetadata({ params }) {
   const { slug } = await params;
   const metadata = await AllPost(`/posts?where[slug][equals]=${slug}`);
   const title = metadata.docs[0]?.seo?.meta?.title || "Default Title";

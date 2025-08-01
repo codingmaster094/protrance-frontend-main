@@ -35,12 +35,12 @@ const Banner = ({
 
       </div>
       <div className="container">
-        <div className="flex flex-col gap-4 text-white  sm:items-center w-full max-w-[1056px] mx-auto">
+        <div className="flex flex-col gap-4 text-white  sm:items-center w-full">
           <h1
             className="sm:text-center  whitespace-pre-line"
             dangerouslySetInnerHTML={{ __html: Heading || "" }}
           ></h1>
-          <ul className="list-disc text-left ms-5 p text-white">
+          <ul className="text-lef text-white list_star">
             {BannerListdata.map((item, index) => (
               <li key={index} className="mb-1">
                 {item.children[0].text}

@@ -4,7 +4,7 @@ import Image from "next/image";
 const HowTofindMe = ({ ImageUrl, title, description, ImageArrya }) => {
 
   return (
-    <section className="py-5 md:py-10 2xl:py-[100px]">
+    <section>
       <div className="container">
         <div className="flex gap-8 md:gap-10 xl:gap-20 flex-col lg:flex-row justify-between">
           <div className="flex flex-col w-full  lg:w-1/2 gap-4 md:gap-6">

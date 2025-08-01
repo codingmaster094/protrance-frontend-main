@@ -1,24 +1,25 @@
- import React from 'react'
- import Image from 'next/image'
+import React from 'react'
+import Image from 'next/image'
 
 const Raucherentwöhnung = ({
-ImageUrl,
-Heading,
-description,
-title,
-main_description,
-Sub_description,
-subtitle,
-Inner_description
+  titleCenter,
+  ImageUrl,
+  Heading,
+  description,
+  title,
+  main_description,
+  Sub_description,
+  subtitle,
+  Inner_description
 }) => {
-  console.log('Sub_description', Sub_description)
   return (
-    <section className="py-5 md:py-10 2xl:py-[100px]">
+    <section>
       <div className="container">
-        <div className="flex flex-col mb-6 lg:mb-10 xl:mb-20 text-center gap-4  mx-auto">
+        <div className={`flex flex-col text-center gap-4 mx-auto ${titleCenter ? '' : 'text-start'}`}>
           <h2 dangerouslySetInnerHTML={{ __html: Heading }}></h2>
-          <p dangerouslySetInnerHTML={{ __html: description || ""}}></p>
+          <p dangerouslySetInnerHTML={{ __html: description }}></p>
         </div>
+        <div className='h-[clamp(2.5rem,-1.5789rem+6.5789vw,5rem)]'></div>
         <div className="flex gap-8 2xl:gap-20 flex-col lg:flex-row">
           <div className="flex flex-col w-full sm:w-[65%] lg:w-[45%] rounded-[32px] overflow-hidden h-[400px] xl:h-[583px]">
             <Image
@@ -33,9 +34,9 @@ Inner_description
             <div className="flex flex-col gap-4">
               <h3
                 className="text-lg lg:text-2xl"
-                dangerouslySetInnerHTML={{ __html: title  }}
+                dangerouslySetInnerHTML={{ __html: title }}
               ></h3>
-              <div dangerouslySetInnerHTML={{ __html: main_description}}></div>
+              <div dangerouslySetInnerHTML={{ __html: main_description }}></div>
               <ul className="list-disc marker:text-primary ms-5 text-accent1 text-opacity-80 p">
                 {Sub_description.map((li, i) => {
                   return <li key={i}>{li.children[0].text}</li>

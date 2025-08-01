@@ -2,7 +2,7 @@
 import Image from "next/image"
 const hypnosisweightloss = ({ ImageUrl, title, description, ImageArry }) => {
   return (
-    <section className="py-5 md:py-10 2xl:py-[100px]">
+    <section>
       <div className="container">
         <div className="flex gap-8 2xl:gap-20 flex-col lg:flex-row">
           <div className="flex flex-col w-full sm:w-[65%] lg:w-[40%] rounded-[32px] overflow-hidden h-[400px] xl:h-[610px]">

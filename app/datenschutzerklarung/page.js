@@ -4,11 +4,11 @@ import dynamic from "next/dynamic";
 const SchemaInjector = dynamic(() => import("../components/SchemaInjector"));
 const page = async () => {
   let DatenschutzerklarungData;
-   let schemaJSON = null;
+  let schemaJSON = null;
 
   try {
     DatenschutzerklarungData = await Alldata("/datenschutzerklarung");
-     schemaJSON = JSON.stringify(DatenschutzerklarungData.seo.structuredData);
+    schemaJSON = JSON.stringify(DatenschutzerklarungData.seo.structuredData);
   } catch (error) {
     console.error("Error fetching data:", error);
     return <div>Error loading data.</div>;
@@ -20,16 +20,26 @@ const page = async () => {
   return (
     <>
       <SchemaInjector schemaJSON={schemaJSON} />
-      <section className="py-5 md:py-10 2xl:py-[100px] sec-page-content bg-[#0c2a35] text-white">
-        <div className="container text-white">
+      <div className="h-[137px] bg-accent"></div>
+      <section className="policy_content">
+        <div className="py-4 md:py-6 2xl:py-[100px] bg-[#9a1a60] text-white">
+          <div className="container mx-auto px-[15px] ">
+            <h1 className="text-h2">Datenschutzerklarung</h1>
+          </div>
+        </div>
+        <div className="h-[clamp(2.5rem,-1.5789rem+6.5789vw,5rem)]"></div>
+        <div className="container">
           <div
             dangerouslySetInnerHTML={{
               __html: DatenschutzerklarungData.contents.Gutenberg_html,
             }}
-          ></div>
+          >
+          </div>
         </div>
+        <div className="h-[clamp(2.5rem,-1.5789rem+6.5789vw,5rem)]"></div>
       </section>
     </>
+
   );
 };
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Footer = ({ FooterDatas }) => {
-  if (!FooterDatas) return null; // optional fallback
+  if (!FooterDatas) return null;
 
   const { sprechzeiten, kontakt, navigationLinks, legalLinks, copyright } =
     FooterDatas;
@@ -12,18 +12,18 @@ const Footer = ({ FooterDatas }) => {
   return (
     <footer className="border-t border-border">
       <div className="container">
-        <div className="flex gap-10 flex-col 2xl:flex-row py-12">
-          <div className="flex footer-menu flex-col gap-4 sm:w-[517px]">
-            <Link href="/" aria-label="foot-logo">
+        <div className="flex flex-col gap-10 py-12 1xl:flex-row justify-between 1xl:gap-32">
+          <div className="flex flex-col footer-menu gap-4 md:border-b pb-4 sm:text-center 1xl:border-none 1xl:text-start">
+            <Link href="/" aria-label="foot-logo" className="md:mx-auto 1xl:m-0">
               <Image src={FooterDatas.footerlogo.url} width={170} height={95} alt="footer-logo" />
             </Link>
-            <div
+            <div className="max-w-lg md:mx-auto 1xl:max-w-[383px]"
               dangerouslySetInnerHTML={{ __html: FooterDatas.description }}
             ></div>
           </div>
 
-          <div className="flex flex-wrap justify-between flex-1 gap-4 flex-col md:flex-row">
-            <div className="flex flex-col footer-menu gap-4 ">
+          <div className="flex flex-col gap-10 md:grid grid-cols-2 lg:flex lg:flex-row lg:gap-16 1xl:gap-32 justify-between">
+            <div className="flex flex-col footer-menu gap-4 1xl:pt-12 1xl:max-w-52">
               <h5>Sprechzeiten</h5>
               <ul>
                 {sprechzeiten?.map(({ id, day, time }) => (
@@ -34,7 +34,7 @@ const Footer = ({ FooterDatas }) => {
               </ul>
             </div>
 
-            <div className="flex flex-col footer-menu gap-4 ">
+            <div className="flex flex-col footer-menu gap-4 1xl:pt-12 1xl:max-w-52">
               <h5>Kontakt</h5>
               <ul>
                 <li>
@@ -55,7 +55,7 @@ const Footer = ({ FooterDatas }) => {
               </ul>
             </div>
 
-            <div className="flex flex-col footer-menu gap-4 ">
+            <div className="flex flex-col footer-menu gap-4 1xl:pt-12">
               <h5>Navigation</h5>
               <ul>
                 {navigationLinks?.map(({ id, label, url }) => (
@@ -68,7 +68,7 @@ const Footer = ({ FooterDatas }) => {
               </ul>
             </div>
 
-            <div className="flex flex-col footer-menu gap-4 ">
+            <div className="flex flex-col footer-menu gap-4 1xl:pt-12">
               <h5>Rechtliches</h5>
               <ul>
                 {legalLinks?.map(({ id, label, url }) => (
@@ -84,7 +84,7 @@ const Footer = ({ FooterDatas }) => {
         </div>
       </div>
 
-      <div className="bg-primary text-white text-center py-[10px]">
+      <div className="bg-primary text-white text-center p-[10px]">
         {copyright}
       </div>
     </footer>

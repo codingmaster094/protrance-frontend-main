@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 const SchemaInjector = dynamic(() => import("../components/SchemaInjector"));
 const page = async () => {
   let ImpressumData;
-   let schemaJSON = null;
+  let schemaJSON = null;
   try {
     ImpressumData = await Alldata("/impressum");
     schemaJSON = JSON.stringify(ImpressumData.seo.structuredData);
@@ -19,21 +19,23 @@ const page = async () => {
   return (
     <>
       <SchemaInjector schemaJSON={schemaJSON} />
-      <section className="py-8 md:py-10 2xl:py-[100px] sec-page-content bg-[#0c2a35] text-white">
-        <div class="py-4 md:py-6 2xl:py-[100px] bg-[#9a1a60]">
-          <div class="container mx-auto px-[15px] ">
-            <h1 class="text-white">Impressum</h1>
+      <div className="h-[137px] bg-accent"></div>
+      <section className="policy_content">
+        <div className="py-4 md:py-6 2xl:py-[100px] bg-[#9a1a60] text-white">
+          <div className="container mx-auto px-[15px] ">
+            <h1 className="text-h2">Impressum</h1>
           </div>
         </div>
-        <div className="py-5 md:py-10 bg-[#0c2a35] text-white">
-          <div className="container">
-            <div
-              dangerouslySetInnerHTML={{
-                __html: ImpressumData.contents.Gutenberg_html,
-              }}
-            ></div>
+        <div className="h-[clamp(2.5rem,-1.5789rem+6.5789vw,5rem)]"></div>
+        <div className="container">
+          <div
+            dangerouslySetInnerHTML={{
+              __html: ImpressumData.contents.Gutenberg_html,
+            }}
+          >
           </div>
         </div>
+        <div className="h-[clamp(2.5rem,-1.5789rem+6.5789vw,5rem)]"></div>
       </section>
     </>
   );

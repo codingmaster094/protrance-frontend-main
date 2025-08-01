@@ -1,19 +1,20 @@
 import Image from 'next/image'
 import React from 'react'
 const map = (
-	{
-		title,
-description,
-ImageUrl
-	}
+  {
+    title,
+    description,
+    ImageUrl
+  }
 ) => {
   return (
-    <section className="py-5 md:py-10 2xl:py-[100px]">
+    <section>
       <div className="container">
-        <div className="flex flex-col gap-4 md:gap-6 mb-8 md:mb-10 lg:mb-20 justify-center text-center">
+        <div className="flex flex-col gap-4 md:gap-6 justify-center text-center">
           <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
           <div dangerouslySetInnerHTML={{ __html: description }}></div>
         </div>
+        <div className='h-[clamp(2.5rem,-1.5789rem+6.5789vw,5rem)]'></div>
         <div className="flex h-[420px] rounded-[32px] overflow-hidden">
           <Image
             src={ImageUrl}
