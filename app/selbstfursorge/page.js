@@ -26,6 +26,7 @@ const page = async() => {
     return <div>No data available.</div>;
   }
 
+  
   return (
     <>
       <SchemaInjector schemaJSON={schemaJSON} />
@@ -45,22 +46,22 @@ const page = async() => {
       />
       <Raucherentwöhnung
         ImageUrl={SelbstfursorgeData.abouts.aboutsImage.url}
-        Heading={SelbstfursorgeData.abouts.headding}
+        Heading={SelbstfursorgeData.abouts.heading}
         description={
           SelbstfursorgeData.abouts.description.root.children[0].children[0]
             .text
         }
-        title={SelbstfursorgeData.abouts.title}
+        title={SelbstfursorgeData.abouts.heading}
         main_description={
           SelbstfursorgeData.abouts.main_description.root.children[0]
             .children[0].text
         }
         Sub_description={
-          SelbstfursorgeData.abouts.Sub_description.root.children[0].children
+          SelbstfursorgeData.abouts.sub_description.root.children[0].children
         }
         subtitle={SelbstfursorgeData.abouts.subtitle}
         Inner_description={
-          SelbstfursorgeData.abouts.Inner_description.root.children[0].children
+          SelbstfursorgeData.abouts.inner_description.root.children[0].children
         }
       />
       <Reference

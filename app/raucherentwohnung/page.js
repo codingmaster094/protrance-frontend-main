@@ -24,6 +24,7 @@ const page = async() => {
   if (!raucherentwohnungData) {
     return <div>No data available.</div>;
   }
+  console.log("raucherentwohnungData", raucherentwohnungData);
   return (
     <>
       <SchemaInjector schemaJSON={schemaJSON} />
@@ -43,22 +44,22 @@ const page = async() => {
       />
       <Raucherentwöhnung
         ImageUrl={raucherentwohnungData.abouts.aboutsImage.url}
-        Heading={raucherentwohnungData.abouts.headding}
+        Heading={raucherentwohnungData.abouts.heading}
         description={
           raucherentwohnungData.abouts.description.root.children[0].children[0]
             .text
         }
-        title={raucherentwohnungData.abouts.title}
+        title={raucherentwohnungData.abouts.heading}
         main_description={
-          raucherentwohnungData.abouts.main_description.root.children[0]
+          raucherentwohnungData.abouts.mainDescription.root.children[0]
             .children[0].text
         }
         Sub_description={
-          raucherentwohnungData.abouts.Sub_description.root.children[0].children
+          raucherentwohnungData.abouts.subDescription.root.children[0].children
         }
         subtitle={raucherentwohnungData.abouts.subtitle}
         Inner_description={
-          raucherentwohnungData.abouts.Inner_description.root.children[0]
+          raucherentwohnungData.abouts.innerDescription.root.children[0]
             .children
         }
       />
