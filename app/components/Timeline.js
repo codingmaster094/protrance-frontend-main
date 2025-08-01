@@ -24,7 +24,7 @@ YearArray
 
             return (
               <div
-                key={item.id}
+                key={index}
                 className={`timeline-item relative h-full ${
                   isEven
                     ? "flex justify-end items-end"

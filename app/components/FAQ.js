@@ -1,8 +1,6 @@
 "use client";
 import React from 'react'
 import { useState } from "react";
-import Chevronsvg from '../../public/images/arrowVector.svg'
-import Image from 'next/image';
 const FAQ = ({ SectionShow, title, ArrayData }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const handleClick = (index) => {
