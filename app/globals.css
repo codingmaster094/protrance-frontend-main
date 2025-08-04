@@ -446,7 +446,9 @@ blockquote strong {
   font-size: clamp(1.375rem, 1.1364rem + 1.3636vw, 2.5rem);
 }
 
-.term-policy h2,h3,h4,
+.term-policy h2,
+.term-policy h3,
+.term-policy h4,
 .term-policy a {
-  color:#9a1a60;
+  color: #9a1a60;
 }
