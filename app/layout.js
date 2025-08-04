@@ -3,7 +3,7 @@ import "./globals.css";
 import "../public/font/stylesheet.css"
 import Header from "./Header/page";
 import Footer from "./Footer/page";
-
+import TopButton from "./components/TopButton"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,12 +26,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-      <Header/>
-          <main>
-             {children}
-          </main>
-        <Footer/>
-         {/* <script src='../public/js/script.js'></script> */}
+        <Header />
+        <main>{children}</main>
+        <TopButton />
+        <Footer />
+        {/* <script src='../public/js/script.js'></script> */}
       </body>
     </html>
   );
