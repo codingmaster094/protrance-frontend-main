@@ -20,7 +20,7 @@ const page = async () => {
     <>
       <SchemaInjector schemaJSON={schemaJSON} />
       <div className="h-[137px] bg-accent"></div>
-      <section className="policy_content">
+      <section className="policy_content term-policy">
         <div className="py-4 md:py-6 2xl:py-[100px] bg-[#9a1a60] text-white">
           <div className="container mx-auto px-[15px] ">
             <h1 className="text-h2">Impressum</h1>
@@ -32,8 +32,7 @@ const page = async () => {
             dangerouslySetInnerHTML={{
               __html: ImpressumData.contents.Gutenberg_html,
             }}
-          >
-          </div>
+          ></div>
         </div>
         <div className="h-[clamp(2.5rem,-1.5789rem+6.5789vw,5rem)]"></div>
       </section>

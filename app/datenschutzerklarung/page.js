@@ -21,7 +21,7 @@ const page = async () => {
     <>
       <SchemaInjector schemaJSON={schemaJSON} />
       <div className="h-[137px] bg-accent"></div>
-      <section className="policy_content">
+      <section className="policy_content term-policy">
         <div className="py-4 md:py-6 2xl:py-[100px] bg-[#9a1a60] text-white">
           <div className="container mx-auto px-[15px] ">
             <h1 className="text-h2">Datenschutzerklarung</h1>
