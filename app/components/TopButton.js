@@ -3,22 +3,15 @@ import React, { useEffect, useState } from "react";
 
 const TopButton = () => {
   const [visible, setVisible] = useState(false);
-  const [borderProgress, setBorderProgress] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
   const toggleVisibility = () => {
     const scrollY = window.scrollY;
-    const maxScroll =
-      document.documentElement.scrollHeight - window.innerHeight;
-
-    setVisible(scrollY > 100); // Show button after 100px scroll
-
-    const progress = (scrollY / maxScroll) * 100;
-    setBorderProgress(progress);
+    setVisible(scrollY > 100);
   };
 
   const smoothScrollToTop = () => {
-    const scrollStep = -window.scrollY / 50 ;
+    const scrollStep = -window.scrollY / 50;
     const scrollAnimation = () => {
       if (window.scrollY !== 0) {
         window.scrollBy(0, scrollStep);
@@ -43,7 +36,7 @@ const TopButton = () => {
         onMouseLeave={() => setIsHovered(false)}
         aria-label="Scroll to top"
         style={{
-          backgroundColor: isHovered ? "#9a1a60" : "#000",
+          backgroundColor: isHovered ? "#9a1a60" : "#9a1a60",
           cursor: "pointer",
           width: "50px",
           height: "50px",
@@ -67,7 +60,7 @@ const TopButton = () => {
           fill="#ffffff"
         >
           <title>Back to top</title>
-          <path d="M18.71,11.71a1,1,0,0,1-1.42,0L13,7.41V19a1,1,0,0,1-2,0V7.41l-4.29,4.3a1,1,0,0,1-1.42-1.42l6-6a1,1,0,0,1,1.42,0l6,6A1,1,0,0,1,18.71,11.71Z"></path>
+          <path d="M18.71,11.71a1,1,0,0,1-1.42,0L13,7.41V19a1,1,0,0,1-2,0V7.41l-4.29,4.3a1,1,0,0,1-1.42-1.42l6-6a1,1,0,0,1,1.42,0l6,6A1,1,0,0,1,18.71,11.71Z" />
         </svg>
       </button>
     )
