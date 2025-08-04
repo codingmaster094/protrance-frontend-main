@@ -36,12 +36,12 @@ const page = async ({ params }) => {
         container={SingleBlogData.docs[0].hero.container_Hight}
         Image_Position={SingleBlogData.docs[0].hero.Image_Position}
       />
-      <div className='h-[clamp(2.5rem,-1.5789rem+6.5789vw,5rem)]'></div>
+      <div className="h-[clamp(2.5rem,-1.5789rem+6.5789vw,5rem)]"></div>
       <BlogClients
         title={SingleBlogData.docs[0].partnerlogo.title}
         ImageArray={SingleBlogData.docs[0].partnerlogo.nestedSections}
       />
-      <div className='h-[clamp(6rem,4.8rem+6vw,12rem)]'></div>
+      <div className="h-[clamp(6rem,4.8rem+6vw,12rem)]"></div>
       <Blogdetails
         bloAboutTitle={SingleBlogData.docs[0].Blog_About.headding}
         blogContent={
@@ -55,12 +55,12 @@ const page = async ({ params }) => {
         }
         cta_BTN={SingleBlogData.docs[0].cta.link}
         cta_image={SingleBlogData.docs[0].cta.cta_image}
-        blogcreatedAt={SingleBlogData.docs[0].createdAt}
+        blogcreatedAt={SingleBlogData.docs[0].publishedDate}
         blogupdatedAt={SingleBlogData.docs[0].updatedAt}
         gutenbergData={SingleBlogData.docs[0].contents.Gutenberg_html}
         FAQ={SingleBlogData.docs[0].faq}
       />
-      <div className='h-[clamp(3.5rem,2.8rem+3.5vw,7rem)]'></div>
+      <div className="h-[clamp(3.5rem,2.8rem+3.5vw,7rem)]"></div>
     </>
   );
 }
