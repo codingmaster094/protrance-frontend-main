@@ -1,10 +1,15 @@
 "use client";
 import React from "react";
-
+import { motion } from 'framer-motion';
 const BlogFaq = ({ SectionShow, title, ArrayData }) => {
   return (
     SectionShow && (
-      <section className="container max-w-[1440px] mx-auto mt-4" id="faq">
+         <motion.section
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }} 
+          className="container max-w-[1440px] mx-auto mt-4" id="faq">
         <div className=" w-full max-w-[1400px]">
           <div className="flex justify-left text-left">
             <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
@@ -35,7 +40,7 @@ const BlogFaq = ({ SectionShow, title, ArrayData }) => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
     )
   );
 };

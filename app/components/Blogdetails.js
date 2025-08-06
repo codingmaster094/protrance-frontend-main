@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Lenis from "@studio-freight/lenis";
 import BlogFaq from "./BlogFaq";
+import { motion } from 'framer-motion';
 const Blogdetails = ({
   bloAboutTitle,
   blogContent,
@@ -84,7 +85,12 @@ const Blogdetails = ({
   return (
     <>
       <section>
-        <div className="container max-w-[1440px] mx-auto">
+           <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }} 
+          className="container max-w-[1440px] mx-auto">
           <div className="flex justify-between md:flex-row flex-col gap-6">
             <p>
               <span>{dayjs(blogcreatedAt).format("DD.MM.YYYY")}</span> |
@@ -186,7 +192,7 @@ const Blogdetails = ({
               ></div>
             </div>
           )}
-        </div>
+        </motion.div>
       </section>
       <BlogFaq
         title={FAQ.title}
