@@ -1,7 +1,8 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-
+import { motion } from 'framer-motion';
 const Reference = ({ Image_Data, Main_title, Main_description }) => {
   return (
     <section>
@@ -17,10 +18,18 @@ const Reference = ({ Image_Data, Main_title, Main_description }) => {
         <div className='h-8 lg:h-[64px]'></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {Image_Data.map((item, index) => (
-            <div
-              key={index}
-              className="relative flex overflow-hidden rounded-[32px] h-[564px] md:h-[620px]"
-            >
+             <motion.div
+                            key={index}
+                            className="relative flex overflow-hidden rounded-[32px] h-[564px] md:h-[620px]"
+                            initial={{ opacity: 0, x: 100 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, amount: 0.2 }} // 20% visibility triggers animation
+                            transition={{
+                              duration: 0.5,
+                              ease: 'easeOut',
+                              delay: index * 0.1,
+                            }}
+                          >
               <Image
                 src={item.Meine_ReferenzenImage.url}
                 alt={item.Meine_ReferenzenImage.filename}
@@ -41,7 +50,7 @@ const Reference = ({ Image_Data, Main_title, Main_description }) => {
                   }}
                 ></div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

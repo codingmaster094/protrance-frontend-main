@@ -1,6 +1,7 @@
+'use client'
 import React from "react";
 import Image from "next/image";
-
+import { motion } from 'framer-motion';
 const HowTofindMe = ({ ImageUrl, title, description, ImageArrya }) => {
 
   return (
@@ -31,12 +32,20 @@ const HowTofindMe = ({ ImageUrl, title, description, ImageArrya }) => {
           </div>
         </div>
         <div className="grid  grid-cols-auto sm:grid-cols-2 lg:grid-cols-3 mt-8 md:mt-10 lg:mt-20 gap-6  md:gap-8  lg:gap-10  2xl:gap-16 w-full max-w-[1250px] mx-auto">
-          {ImageArrya.map((item, i) => {
+          {ImageArrya.map((item, index) => {
             return (
-              <div
-                key={i}
+               <motion.div
+                key={index}
                 className="flex flex-col  bg-white p-6 gap-6 rounded-[20px] shadow-[0px_4.8px_24.4px_-6px_#1310221A] border border-black border-opacity-[0.11]
 ]"
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }} // 20% visibility triggers animation
+                transition={{
+                  duration: 0.5,
+                  ease: 'easeOut',
+                  delay: index * 0.1,
+                }}
               >
                 <div className="flex rounded-3xl overflow-hidden h-[164px]">
                   <Image
@@ -52,7 +61,7 @@ const HowTofindMe = ({ ImageUrl, title, description, ImageArrya }) => {
                     return <p key={index}>{val.children[0].text}</p>;
                   })}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

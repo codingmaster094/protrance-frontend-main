@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
+import { motion } from 'framer-motion';
 const Blog = ({ title, AllPostDetails }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredPosts, setFilteredPosts] = useState(AllPostDetails);
@@ -48,7 +48,18 @@ const Blog = ({ title, AllPostDetails }) => {
           <div className="grid grid-cols-auto sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.length > 0 ? (
               filteredPosts.map((item, index) => (
-                <div key={index} className="flex flex-col gap-8">
+                 <motion.div
+                key={index}
+                className="flex flex-col gap-8"
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }} // 20% visibility triggers animation
+                transition={{
+                  duration: 0.5,
+                  ease: 'easeOut',
+                  delay: index * 0.1,
+                }}
+              >
                   <Link
                     href={`/blog/${item.slug}`}
                     className="w-full h-[461px] rounded-3xl overflow-hidden flex"
@@ -83,7 +94,7 @@ const Blog = ({ title, AllPostDetails }) => {
                       MEHR LESEN
                     </Link>
                   </div>
-                </div>
+               </motion.div>
               ))
             ) : (
               <p className="text-center col-span-full">

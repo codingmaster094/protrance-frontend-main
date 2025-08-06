@@ -1,5 +1,7 @@
 
+'use client'
 import Image from "next/image"
+import { motion } from 'framer-motion';
 const hypnosisweightloss = ({ ImageUrl, title, description, ImageArry }) => {
   return (
     <section>
@@ -22,7 +24,17 @@ const hypnosisweightloss = ({ ImageUrl, title, description, ImageArry }) => {
             ></p>
             <div className="flex gap-6 flex-col sm:flex-row">
               {ImageArry.map((item, index) => (
-                <div key={index}>
+                 <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }} // 20% visibility triggers animation
+                transition={{
+                  duration: 0.5,
+                  ease: 'easeOut',
+                  delay: index * 0.1,
+                }}
+              >
                   <div className="flex flex-col bg-background p-6 gap-4 rounded-[24px] h-full">
                     <div className="flex item-center justify-center w-[72px] h-[72px] bg-white rounded-full">
                       <Image
@@ -39,7 +51,7 @@ const hypnosisweightloss = ({ ImageUrl, title, description, ImageArry }) => {
                       </p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

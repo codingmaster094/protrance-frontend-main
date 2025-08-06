@@ -1,19 +1,28 @@
-  import React from 'react'
-  import Image from 'next/image';
- const Counter = ({
-	title,
-    ImageArray
- }) => {
+'use client'
+import React from 'react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+
+const Counter = ({ title, ImageArray }) => {
   return (
     <section>
       <div className="container">
         <div className="flex flex-col items-center gap-6 md:gap-8 p-6 md:p-10 2xl:p-16 bg-background rounded-lg md:rounded-[32px]">
           <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 ">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
             {ImageArray.map((item, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="flex flex-col border border-black border-opacity-10 p-6 gap-4 counter-block rounded-[20px]"
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }} // 20% visibility triggers animation
+                transition={{
+                  duration: 0.5,
+                  ease: 'easeOut',
+                  delay: index * 0.1,
+                }}
               >
                 <div className="flex items-center gap-2">
                   <Image
@@ -27,19 +36,19 @@
                 <span className="text-[50px] font-semibold font-Josefin block leading-tight text-accent">
                   {item.subtitle}
                 </span>
-                <p className='text-accent1'
+                <p
+                  className="text-accent1"
                   dangerouslySetInnerHTML={{
                     __html: item.description.root.children[0].children[0].text,
                   }}
-                >
-                </p>
-              </div>
+                ></p>
+              </motion.div>
             ))}
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
-export default Counter
+export default Counter;

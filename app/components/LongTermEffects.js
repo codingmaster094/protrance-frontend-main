@@ -1,5 +1,7 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
+import { motion } from 'framer-motion';
 const LongTermEffects = (
 	{
 		ImageUrl,
@@ -27,12 +29,20 @@ ImageArray
               className="object-cover w-full h-full"
             ></Image>
           </div>
-          {ImageArray.map((item , i) => {
+          {ImageArray.map((item , index) => {
 			return (
-        <div
-          key={i}
-          className="flex flex-col w-full lg:w-1/2 p-6 lg:p-16 gap-4 lg:gap-8 rounded-[24px] h-full bg-background"
-        >
+         <motion.div
+                key={index}
+                className="flex flex-col w-full lg:w-1/2 p-6 lg:p-16 gap-4 lg:gap-8 rounded-[24px] h-full bg-background"
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }} // 20% visibility triggers animation
+                transition={{
+                  duration: 0.5,
+                  ease: 'easeOut',
+                  delay: index * 0.1,
+                }}
+              >
           <div className="flex flex-col gap-4">
             <h3
               className="text-lg lg:text-2xl"
@@ -63,7 +73,7 @@ ImageArray
               height={200}
             />
           </div>
-        </div>
+        </motion.div>
       );
 		  })}
           
