@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
  import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { motion } from 'framer-motion';
 const Benefits = ({
 	title,
 description,
@@ -16,7 +17,12 @@ ImageArray
   }
   return (
     <section>
-      <div className="container">
+       <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }} 
+          className="container">
         <div className="flex flex-col text-center gap-4 max-w-[1440px] mx-auto">
           <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
           <p dangerouslySetInnerHTML={{ __html: description }}></p>
@@ -72,7 +78,7 @@ ImageArray
             <div className="swiper-button-next absolute rounded-full  bg-primary after:!text-base !w-10 !h-10 after:text-white  after:font-bold"></div>
           </Swiper>
         </div>
-      </div>
+     </motion.div>
     </section>
   );
 }

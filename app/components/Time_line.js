@@ -1,17 +1,28 @@
+'use client'
 import React from 'react'
-
+import { motion } from 'framer-motion';
 const Time_line = ({ title, description, YearArray }) => {
   return (
     <>
       <section>
-        <div className="container">
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }} 
+          className="container">
           <div className="flex flex-col gap-6 justify-center text-center">
             <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
             <p dangerouslySetInnerHTML={{ __html: description }}></p>
           </div>
-        </div>
+        </motion.div>
         <div className="h-[clamp(2.5rem,-1.5789rem+6.5789vw,5rem)]"></div>
-        <div className="container timeline">
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }} 
+          className="container timeline">
           {/* Render rows dynamically (4 items per row) */}
           {Array.from({ length: Math.ceil(YearArray.length / 4) }).map(
             (_, rowIndex) => (
@@ -40,7 +51,7 @@ const Time_line = ({ title, description, YearArray }) => {
               </div>
             )
           )}
-        </div>
+        </motion.div>
         {/* <div className="container timeline">
         <div className="row">
           <div className="box relative w-full">

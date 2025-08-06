@@ -3,6 +3,7 @@ import Lenis from "@studio-freight/lenis";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef } from "react";
+import { motion } from 'framer-motion';
 const Contact = ({ title, description, ImageArray }) => {
   const lenisRef = useRef(null);
   useEffect(() => {
@@ -40,8 +41,13 @@ const Contact = ({ title, description, ImageArray }) => {
   };
 
   return (
-    <section className="py-5 md:py-10 2xl:py-[100px]">
-      <div className="container">
+    <section className="">
+      <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }} 
+          className="container">
         <div className="flex flex-col gap-6  mb-8 md:mb-10 lg:mb-20 justify-center text-center">
           <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
           <p dangerouslySetInnerHTML={{ __html: description }}></p>
@@ -51,9 +57,17 @@ const Contact = ({ title, description, ImageArray }) => {
             const isAnchorLink = item?.link?.url?.startsWith("#");
 
             return (
-              <div
+              <motion.div
                 key={index}
                 className="flex flex-col justify-between rounded-[24px] shadow-[0px_4.8px_24.4px_-6px_#1310221A] py-8 px-6"
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }} // 20% visibility triggers animation
+                transition={{
+                  duration: 0.5,
+                  ease: 'easeOut',
+                  delay: index * 0.1,
+                }}
               >
                 <div className="flex mb-4">
                   <Image
@@ -102,11 +116,11 @@ const Contact = ({ title, description, ImageArray }) => {
                       {item.link.label}
                     </Link>
                   ))}
-              </div>
+              </motion.div>
             );
           })}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

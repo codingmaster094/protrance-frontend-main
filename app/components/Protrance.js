@@ -10,6 +10,7 @@ import Link from 'next/link';
 import NextArrow from '../../public/images/arrow-left-long.png';
 import prevArrow from '../../public/images/arrow-right.png';
 import { useRef } from "react";
+import { motion } from 'framer-motion';
 
 const Protrance = ({ title, ImageArray }) => {
 
@@ -29,7 +30,12 @@ const Protrance = ({ title, ImageArray }) => {
   }
   return (
     <section>
-      <div className="container">
+      <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }} 
+          className="container">
         <div className="flex justify-center text-center">
           <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
         </div>
@@ -100,7 +106,7 @@ const Protrance = ({ title, ImageArray }) => {
             </div>
           </Swiper>
         </div>
-      </div>
+       </motion.div>
     </section>
   );
 }

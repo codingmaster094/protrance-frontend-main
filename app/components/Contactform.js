@@ -12,7 +12,7 @@ import star from "../../public/images/Stares.svg";
 import tea from "../../public/images/tea.svg";
 import truck from "../../public/images/truck.svg";
 import Dog from "../../public/images/dog.svg";
-
+import { motion } from 'framer-motion';
 const iconData = [
   { value: "Herz", label: " den  Herz", image: heart },
   { value: "Tasse", label: " den  Tasse", image: tea },
@@ -139,10 +139,15 @@ const Contactform = ({ title, description, Form_title, MapImage }) => {
   };
   return (
     <section
-      className="py-5 md:py-10 2xl:py-[100px] contact"
+      className=" contact"
       id="kontaktformular"
     >
-      <div className="container">
+       <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }} 
+          className="container">
         <div className="flex flex-col gap-6  mb-8 md:mb-10 lg:mb-20 justify-center text-center">
           <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
           <p dangerouslySetInnerHTML={{ __html: description }}></p>
@@ -293,7 +298,7 @@ const Contactform = ({ title, description, Form_title, MapImage }) => {
             ></Image>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -13,7 +13,12 @@ ImageArray
 
   return (
     <section>
-      <div className="container">
+      <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }} 
+          className="container">
         <div className="flex flex-col gap-6 justify-center text-center">
           <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
           <p dangerouslySetInnerHTML={{ __html: description }}></p>
@@ -78,7 +83,7 @@ ImageArray
 		  })}
           
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -1,5 +1,7 @@
+'use client'
 import Image from 'next/image'
 import React from 'react'
+import { motion } from 'framer-motion';
 const map = (
   {
     title,
@@ -9,7 +11,12 @@ const map = (
 ) => {
   return (
     <section>
-      <div className="container">
+     <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }} 
+          className="container">
         <div className="flex flex-col gap-4 md:gap-6 justify-center text-center">
           <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
           <div dangerouslySetInnerHTML={{ __html: description }}></div>
@@ -24,7 +31,7 @@ const map = (
             className="w-full h-full object-cover"
           />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

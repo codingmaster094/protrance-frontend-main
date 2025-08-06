@@ -1,6 +1,7 @@
 "use client";
 import React from 'react'
 import { useState } from "react";
+import { motion } from 'framer-motion';
 const FAQ = ({ SectionShow, title, ArrayData }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const handleClick = (index) => {
@@ -9,7 +10,12 @@ const FAQ = ({ SectionShow, title, ArrayData }) => {
   return (
     SectionShow && (
       <section id="faq">
-        <div className="container max-w-[1052px]">
+          <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }} 
+          className="container max-w-[1052px]">
           <div className="flex justify-center text-center">
             <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
           </div>
@@ -50,7 +56,7 @@ const FAQ = ({ SectionShow, title, ArrayData }) => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>)
   );
 };

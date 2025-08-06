@@ -6,7 +6,12 @@ const HowTofindMe = ({ ImageUrl, title, description, ImageArrya }) => {
 
   return (
     <section>
-      <div className="container">
+      <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }} 
+          className="container">
         <div className="flex gap-8 md:gap-10 xl:gap-20 flex-col lg:flex-row justify-between">
           <div className="flex flex-col w-full  lg:w-1/2 gap-4 md:gap-6">
             <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
@@ -65,7 +70,7 @@ const HowTofindMe = ({ ImageUrl, title, description, ImageArrya }) => {
             );
           })}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

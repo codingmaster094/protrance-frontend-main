@@ -1,6 +1,7 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
-
+import { motion } from 'framer-motion';
 const LampenfieberPrüfungsangst = (
   {
     headding,
@@ -13,7 +14,12 @@ const LampenfieberPrüfungsangst = (
 ) => {
   return (
     <section>
-      <div className="container">
+      <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }} 
+          className="container">
         <div className="flex flex-col text-left gap-4 mx-auto">
           <h2 dangerouslySetInnerHTML={{ __html: headding }}></h2>
         </div>
@@ -48,7 +54,7 @@ const LampenfieberPrüfungsangst = (
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

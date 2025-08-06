@@ -6,6 +6,7 @@ import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 const Client = ({ title, description, LogoImageArray, ReviewImageArray, SectionShow }) => {
   let processedSlides = [...LogoImageArray];
   while (processedSlides.length < 6 && LogoImageArray.length > 0) {
@@ -18,7 +19,12 @@ const Client = ({ title, description, LogoImageArray, ReviewImageArray, SectionS
   return (
     SectionShow && (
       <section>
-        <div className="container">
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }} 
+          className="container">
           <div className="flex flex-col text-center gap-4">
             <h2 dangerouslySetInnerHTML={{ __html: title }}></h2>
             <p dangerouslySetInnerHTML={{ __html: description }}></p>
@@ -109,7 +115,7 @@ const Client = ({ title, description, LogoImageArray, ReviewImageArray, SectionS
               ))}
             </Swiper>
           </div>
-        </div>
+      </motion.div>
       </section>)
   );
 };
