@@ -70,10 +70,10 @@ const Service = ({
               loop={true}
               spaceBetween={24}
               slidesPerView={1}
-              // autoplay={{
-              //   delay: 3000,
-              //   disableOnInteraction: false,
-              // }}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
               breakpoints={{
                 715: { slidesPerView: 2 },
                 1200: { slidesPerView: 1.7 },
