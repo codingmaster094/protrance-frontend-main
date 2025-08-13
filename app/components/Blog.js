@@ -48,7 +48,7 @@ const Blog = ({ title, AllPostDetails }) => {
           <div className="grid grid-cols-auto sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.length > 0 ? (
               filteredPosts.map((item, index) => (
-                 <div
+                 <motion.div
                 key={index}
                 className="flex flex-col gap-8"
                 initial={{ opacity: 0, x: 100 }}
@@ -94,7 +94,7 @@ const Blog = ({ title, AllPostDetails }) => {
                       MEHR LESEN
                     </Link>
                   </div>
-               </div>
+               </motion.div>
               ))
             ) : (
               <p className="text-center col-span-full">
