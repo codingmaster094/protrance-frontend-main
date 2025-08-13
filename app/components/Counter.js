@@ -17,7 +17,7 @@ const Counter = ({ title, ImageArray }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
             {ImageArray.map((item, index) => (
-              <motion.div
+              <div
                 key={index}
                 className="flex flex-col border border-black border-opacity-10 p-6 gap-4 counter-block rounded-[20px]"
                 initial={{ opacity: 0, x: 100 }}
@@ -47,7 +47,7 @@ const Counter = ({ title, ImageArray }) => {
                     __html: item.description.root.children[0].children[0].text,
                   }}
                 ></p>
-              </motion.div>
+              </div>
             ))}
           </div>
       </motion.div>

@@ -24,7 +24,7 @@ const Reference = ({ Image_Data, Main_title, Main_description }) => {
         <div className='h-8 lg:h-[64px]'></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {Image_Data.map((item, index) => (
-              <motion.div
+              <div
                               key={index}
                               className="relative flex overflow-hidden rounded-[32px] h-[564px] md:h-[620px]"
                               initial={{ opacity: 0, x: 100 }}
@@ -56,7 +56,7 @@ const Reference = ({ Image_Data, Main_title, Main_description }) => {
                   }}
                 ></div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </motion.div>

@@ -16,18 +16,17 @@ const Clients = ({ title, ImageArray }) => {
 
   return (
     <section>
-      <div className="container">
-        <motion.div
+      <motion.div className="container" initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}>
+        <div
           className="flex mb-6 sm:mb-8 justify-center"
-          initial={{ opacity: 0, y: 100 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           <h2 className="text-center" dangerouslySetInnerHTML={{ __html: title }}></h2>
-        </motion.div>
+        </div>
 
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -78,8 +77,8 @@ const Clients = ({ title, ImageArray }) => {
               </SwiperSlide>
             ))}
           </Swiper>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </section>
   );
 };

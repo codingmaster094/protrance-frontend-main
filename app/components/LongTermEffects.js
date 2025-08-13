@@ -36,7 +36,7 @@ ImageArray
           </div>
           {ImageArray.map((item , index) => {
 			return (
-         <motion.div
+         <div
                 key={index}
                 className="flex flex-col w-full lg:w-1/2 p-6 lg:p-16 gap-4 lg:gap-8 rounded-[24px] h-full bg-background"
                 initial={{ opacity: 0, x: 100 }}
@@ -78,7 +78,7 @@ ImageArray
               height={200}
             />
           </div>
-        </motion.div>
+        </div>
       );
 		  })}
           

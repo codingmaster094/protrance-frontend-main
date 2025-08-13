@@ -57,7 +57,7 @@ const Contact = ({ title, description, ImageArray }) => {
             const isAnchorLink = item?.link?.url?.startsWith("#");
 
             return (
-              <motion.div
+              <div
                 key={index}
                 className="flex flex-col justify-between rounded-[24px] shadow-[0px_4.8px_24.4px_-6px_#1310221A] py-8 px-6"
                 initial={{ opacity: 0, x: 100 }}
@@ -116,7 +116,7 @@ const Contact = ({ title, description, ImageArray }) => {
                       {item.link.label}
                     </Link>
                   ))}
-              </motion.div>
+              </div>
             );
           })}
         </div>

@@ -39,7 +39,7 @@ const HowTofindMe = ({ ImageUrl, title, description, ImageArrya }) => {
         <div className="grid  grid-cols-auto sm:grid-cols-2 lg:grid-cols-3 mt-8 md:mt-10 lg:mt-20 gap-6  md:gap-8  lg:gap-10  2xl:gap-16 w-full max-w-[1250px] mx-auto">
           {ImageArrya.map((item, index) => {
             return (
-               <motion.div
+               <div
                 key={index}
                 className="flex flex-col  bg-white p-6 gap-6 rounded-[20px] shadow-[0px_4.8px_24.4px_-6px_#1310221A] border border-black border-opacity-[0.11]
 ]"
@@ -66,7 +66,7 @@ const HowTofindMe = ({ ImageUrl, title, description, ImageArrya }) => {
                     return <p key={index}>{val.children[0].text}</p>;
                   })}
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

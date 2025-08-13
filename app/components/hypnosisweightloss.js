@@ -29,7 +29,7 @@ const hypnosisweightloss = ({ ImageUrl, title, description, ImageArry }) => {
             ></p>
             <div className="flex gap-6 flex-col sm:flex-row">
               {ImageArry.map((item, index) => (
-                 <motion.div
+                 <div
                 key={index}
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -56,7 +56,7 @@ const hypnosisweightloss = ({ ImageUrl, title, description, ImageArry }) => {
                       </p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
