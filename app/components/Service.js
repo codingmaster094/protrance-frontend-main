@@ -70,10 +70,10 @@ const Service = ({
               loop={true}
               spaceBetween={24}
               slidesPerView={1}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
+              // autoplay={{
+              //   delay: 3000,
+              //   disableOnInteraction: false,
+              // }}
               breakpoints={{
                 715: { slidesPerView: 2 },
                 1200: { slidesPerView: 1.7 },
@@ -95,7 +95,7 @@ const Service = ({
                         className="w-full object-cover !h-full object-right"
                       />
                     </div>
-                    <div className="*:text-white w-full h-full transition-all duration-300 service_card flex flex-col justify-end p-6">
+                    <div className="*:text-white w-full h-full transition-all duration-500 service_card flex flex-col justify-end p-6">
                       <h3 className="inline-block" dangerouslySetInnerHTML={{ __html: slide.title }}></h3>
                       <div
                         dangerouslySetInnerHTML={{

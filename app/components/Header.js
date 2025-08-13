@@ -93,7 +93,7 @@ const Header = ({ Menus, HeaderData }) => {
             </span>
 
             {/* Menu Items */}
-      <ul className="flex text-white font-medium transition-all duration-700 ease-in-out flex-col lg:flex-row lg:bg-white/90 lg:rounded-[20px] gap-4  backdrop-blur-[40px] px-[11px] lg:w-[80%] 1xl:w-[70%] lg:justify-center [&_li>a]:text-black">
+      <ul className="flex text-white font-medium transition-all duration-700 ease-in-out flex-col lg:flex-row lg:bg-[#C7DCEB] lg:rounded-[20px] gap-4  backdrop-blur-[40px] px-[11px] lg:w-[80%] 1xl:w-[70%] lg:justify-center [&_li>a]:text-black">
   {Menus.map((item) => {
     const hasSubmenu = item.submenus?.length > 0;
     return (

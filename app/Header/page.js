@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from "../components/Header"
 import Alldata from '../untils/AllDataFatch';
+import Mobile_buttons from "../components/Mobile_buttons"
 const page = async() => {
     let MenusData;
     let HeaderDatas;
@@ -15,7 +16,12 @@ const page = async() => {
   if (!MenusData || !HeaderDatas) {
     return <div>No data available.</div>;
   }
-  return <Header Menus={MenusData.menus} HeaderData={HeaderDatas} />;
+  return (
+    <>
+    <Header Menus={MenusData.menus} HeaderData={HeaderDatas} />
+    <Mobile_buttons />
+    </>
+);
 }
 
 export default page

@@ -158,7 +158,7 @@ const Blogdetails = ({
                   href={cta_BTN.url}
                   aria-label="btn-link"
                   role="link"
-                  className="btn bg-white text-black"
+                  className="btn bg-[#9A1A60] text-white"
                 >
                   {cta_BTN.label}
                 </Link>

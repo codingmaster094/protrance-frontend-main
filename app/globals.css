@@ -210,7 +210,7 @@
   }
 
   blockquote a {
-    @apply rounded-full py-2 px-4 xsm:px-8 font-medium transition-all inline-flex items-center justify-center mt-4 xsm:mt-6 bg-white hover:bg-secondary text-black hover:text-white;
+    @apply rounded-full py-2 px-4 xsm:px-8 font-medium transition-all inline-flex items-center justify-center mt-4 xsm:mt-6  bg-[#9A1A60] text-white;
   }
 }
 
@@ -276,8 +276,39 @@ blockquote::before {
   bottom: -10%;
 }
 
-.service_card:hover::after {
-  bottom: 0%;
+
+.service_card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  /* background: linear-gradient(
+    0deg, 
+    transparent, 
+    transparent 30%, 
+    rgba(154,26,96,0.3)
+  ); */
+  background: linear-gradient(
+    0deg, 
+    transparent, 
+    transparent 30%, 
+    rgba(255,255,255,0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 1s ease;
+  opacity: 0;
+}
+
+.service_card:hover {
+  /* box-shadow: 0 0 20px rgba(154,26,96,0.5); */
+  box-shadow: 0 0 20px rgba(155,155,155,0.5);
+}
+
+.service_card:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
 }
 
 .timeline .row {
