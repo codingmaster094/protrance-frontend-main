@@ -32,7 +32,7 @@ const Mobile_buttons = () => {
         {/* Bewerben Button */}
         <Link
         
-          href="https://connect.shore.com/bookings/daniella-nicolli-heilpraktikerin/services?locale=de"
+          href="/"
           target="_blank"
           className="flex items-center justify-center gap-2 w-1/2 bg-white  m-call m-bewer py-4 px-[36px]"
         >
