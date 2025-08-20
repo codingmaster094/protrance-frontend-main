@@ -188,7 +188,7 @@ const Header = ({ Menus, HeaderData }) => {
           </div>
 
           {/* Desktop only button */}
-          <div class="lg:w-[15%] 1xl:w-[25%] hidden lg:inline-flex justify-end">
+          <div className="lg:w-[15%] 1xl:w-[25%] hidden lg:inline-flex justify-end">
             <Link
             href={HeaderData.link.url}
             className="btn btn-primary hidden lg:inline-flex mt-0 hover:bg-black"

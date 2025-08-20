@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@studio-freight/lenis": "^1.0.42",
+    "@vercel/speed-insights": "^1.2.0",
     "dayjs": "^1.11.13",
     "framer-motion": "^12.23.12",
     "next": "15.3.4",
