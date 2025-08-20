@@ -6,7 +6,7 @@ import TopButton from "./components/TopButton"
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="de">
       <body
       >
         <Header />
