@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MobileToggle from "../../public/images/mobile-toggle.svg";
-import CloseBtn from "../../public/images/close.svg";
 import Lenis from "@studio-freight/lenis";
 
 const Header = ({ Menus, HeaderData }) => {
@@ -86,7 +85,9 @@ const Header = ({ Menus, HeaderData }) => {
               aria-label="close"
             >
               <Image
-                src={CloseBtn}
+                src={'/images/close.svg'}
+                width={32}
+                height={32}
                 alt="close-btn"
                 onClick={handleMenuToggle}
               />
