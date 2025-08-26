@@ -101,10 +101,12 @@ const Header = ({ Menus, HeaderData }) => {
       <li
         key={item.id}
         className={`relative menu-animate ${isActive(item.link?.url) && !hasSubmenu ? "" : ""}`}
+         onClick={() => setMenuOpen(false)}
       >
         {hasSubmenu ? (
           <div
             className="inline-block hassubmenu w-full"
+           
             onMouseOver={() => {
               if (!isMobile) {
                 clearTimeout(window.dropdownTimeout);
