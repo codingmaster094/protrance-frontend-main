@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const CounterItem = ({ item, index }) => {
+const CounterItem = ({ item }) => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
   const [count, setCount] = useState(0);
 
@@ -78,6 +78,7 @@ const Counter = ({ title, ImageArray }) => {
             ))}
           </div>
         </motion.div>
+
       </div>
     </section>
   );
