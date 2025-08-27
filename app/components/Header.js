@@ -94,7 +94,7 @@ const Header = ({ Menus, HeaderData }) => {
             </span>
 
             {/* Menu Items */}
-            <ul className="flex font-medium transition-all duration-700 ease-in-out flex-col lg:flex-row  lg:rounded-[20px] gap-4  backdrop-blur-[40px] px-[11px] lg:w-[80%] 1xl:w-[70%] lg:justify-center ">
+            <ul className={`flex font-medium transition-all duration-700 ease-in-out flex-col lg:flex-row  lg:rounded-[20px] gap-4  ${pathname === "/" ? "" : "backdrop-blur-[40px]"} px-[11px] lg:w-[80%] 1xl:w-[70%] lg:justify-center `}>
               {Menus.map((item) => {
                 const hasSubmenu = item.submenus?.length > 0;
                 return (

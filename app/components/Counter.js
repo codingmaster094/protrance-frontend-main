@@ -28,13 +28,10 @@ const CounterItem = ({ item, index }) => {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: 100 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{
-        duration: 0.5,
-        ease: "easeOut",
-        delay: index * 0.1,
-      }}
+     initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
       className="flex flex-col border border-black border-opacity-10 p-6 gap-4 counter-block rounded-[20px]"
     >
       <div className="flex items-center gap-2">

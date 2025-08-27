@@ -548,7 +548,7 @@ blockquote strong {
   }
 }
 
-@media (max-width:992px){
+@media (max-width:991px){
   .menu-animate > a, .menu-animate > .hassubmenu button{
     text-align: left;
     justify-content: flex-start;

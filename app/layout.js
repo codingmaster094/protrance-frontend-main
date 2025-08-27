@@ -8,7 +8,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 export default function RootLayout({ children }) {
   return (
     <html lang="de">     
-      <body>
+      <body className="overflow-x-hidden">
         <Header />
         <main>
           {children}
