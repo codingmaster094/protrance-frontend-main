@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -21,15 +21,6 @@ const Service = ({
     processedSlides = [...processedSlides, ...ImageArry];
   }
 
-  // const wrapperRef = useRef(null);
-  // const cardImgRef = useRef(null);
-
-  // useEffect(() => {
-  //   if (wrapperRef.current && cardImgRef.current) {
-  //     const wrapperHeight = wrapperRef.current.clientHeight;
-  //     cardImgRef.current.style.height = `${wrapperHeight}px`;
-  //   }
-  // }, []);
   return (
     <section>
       <div className="pl-4 2xl:pl-[calc((100%-1600px)/2)] pr-4 lg:pr-0">
@@ -78,10 +69,10 @@ const Service = ({
               loop={true}
               spaceBetween={24}
               slidesPerView={1}
-              // autoplay={{
-              //   delay: 3000,
-              //   disableOnInteraction: false,
-              // }}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
               breakpoints={{
                 715: { slidesPerView: 2 },
                 1200: { slidesPerView: 1.7 },

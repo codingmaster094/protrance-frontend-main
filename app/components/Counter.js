@@ -5,7 +5,6 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const CounterItem = ({ item, index }) => {
-  const controls = useAnimation();
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
   const [count, setCount] = useState(0);
 
