@@ -1,6 +1,5 @@
 'use client';
-
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -22,11 +21,20 @@ const Service = ({
     processedSlides = [...processedSlides, ...ImageArry];
   }
 
+  // const wrapperRef = useRef(null);
+  // const cardImgRef = useRef(null);
+
+  // useEffect(() => {
+  //   if (wrapperRef.current && cardImgRef.current) {
+  //     const wrapperHeight = wrapperRef.current.clientHeight;
+  //     cardImgRef.current.style.height = `${wrapperHeight}px`;
+  //   }
+  // }, []);
   return (
     <section>
       <div className="pl-4 2xl:pl-[calc((100%-1600px)/2)] pr-4 lg:pr-0">
         <div className="flex flex-col lg:flex-row gap-10 2xl:gap-16">
-          
+
           {/* ✅ Animate Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 100 }}
@@ -65,15 +73,15 @@ const Service = ({
             className="lg:w-6/12 lxl:w-8/12"
           >
             <Swiper
-              className="service-slider h-[500px] lg:h-[624px]"
+              className="service-slider"
               modules={[Autoplay]}
               loop={true}
               spaceBetween={24}
               slidesPerView={1}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
+              // autoplay={{
+              //   delay: 3000,
+              //   disableOnInteraction: false,
+              // }}
               breakpoints={{
                 715: { slidesPerView: 2 },
                 1200: { slidesPerView: 1.7 },
@@ -83,9 +91,8 @@ const Service = ({
               {processedSlides?.map((slide, i) => (
                 <SwiperSlide
                   key={i}
-                  className="h-full rounded-[20px] overflow-hidden group"
                 >
-                  <div className="flex items-center justify-center rounded-[20px] overflow-hidden relative h-full">
+                  {/* <div className="flex items-center justify-center rounded-[20px] overflow-hidden relative h-full">
                     <div className="absolute top-0 left-0 w-full h-full">
                       <Image
                         src={slide.aboutsImage.url}
@@ -103,7 +110,22 @@ const Service = ({
                         }}
                       ></div>
                     </div>
-                  </div>
+                  </div> */}
+                  <div class="card bg-black/5 rounded-2xl overflow-hidden group relative z-10">
+                        <div class="overlay bg-white/0 absolute inset-0 z-10 group-hover:bg-white/70 transition-all"></div>
+                        <div class="image_wrapper h-[clamp(23.125rem,21.625rem+7.5vw,30.625rem)]" >
+                            <div class="image absolute inset-0 h-[clamp(23.125rem,21.625rem+7.5vw,30.625rem)] group-hover:!h-full transition-all duration-300 group-hover:scale-110 ease-out">
+                                <Image src={slide.aboutsImage.url}
+                                    alt="" class="size-full object-cover" width={400} height={450} />
+                            </div>
+                        </div>
+                        <div class="content p-5 relative z-10 pb-10 ">
+                            <h3 className="inline-block" dangerouslySetInnerHTML={{ __html: slide.title }}></h3>
+                            <div dangerouslySetInnerHTML={{
+                          __html: slide.description.root.children[0].children[0].text,
+                        }}></div>
+                        </div>
+                    </div>
                 </SwiperSlide>
               ))}
             </Swiper>
