@@ -7,6 +7,7 @@ import Protrance from '../components/Protrance'
 import Reviews from "../ReviewData/page";
 import FAQ from "../components/FAQ"
 import Raucherentwöhnung from '../components/Raucherentwöhnung'
+import Calculater from '../components/Calculater'
 import Alldata from "../untils/AllDataFatch";
 import dynamic from "next/dynamic";
 const SchemaInjector = dynamic(() => import("../components/SchemaInjector"));
@@ -64,6 +65,8 @@ const page = async () => {
             .children
         }
       />
+      <div className='h-[clamp(6.6875rem,5.35rem+6.6875vw,13.375rem)]'></div>
+      <Calculater/>
       <div className='h-[clamp(5.375rem,4.3rem+5.375vw,10.75rem)]'></div>
       <Reference
         Main_title={raucherentwohnungData.Meine_Referenzen.title}

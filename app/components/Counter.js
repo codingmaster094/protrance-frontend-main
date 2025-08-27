@@ -11,7 +11,7 @@ const CounterItem = ({ item, index }) => {
   useEffect(() => {
     if (inView) {
       let start = 0;
-      const end = parseInt(item.subtitle.replace(/\D/g, "")) || 0; // extract number only
+      const end = parseInt(item.subtitle.replace(/\D/g, "")) || 0; 
       const duration = 2000; // ms
       const stepTime = Math.abs(Math.floor(duration / end));
 

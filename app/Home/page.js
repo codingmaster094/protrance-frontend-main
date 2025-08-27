@@ -8,7 +8,6 @@ import Benefits from '../components/Benefits'
 import Reviews from '../ReviewData/page'
 import Reference from '../components/Reference'
 import Protrance from '../components/Protrance'
-import Calculater from '../components/Calculater'
 import FAQ from '../components/FAQ'
 import AllData from "../untils/AllDataFatch"
 
@@ -24,7 +23,6 @@ const page = async () => {
   if (!HomePageData) {
     return <div>No data available.</div>;
   }
-  console.log('HomePageData', HomePageData)
   return (
     <>
       <Banner
@@ -102,8 +100,6 @@ const page = async () => {
         title={HomePageData.service2.title}
         ImageArray={HomePageData.service2.nestedService}
       />
-      <div className='h-[clamp(6.6875rem,5.35rem+6.6875vw,13.375rem)]'></div>
-      <Calculater/>
       <div className='h-[clamp(6.6875rem,5.35rem+6.6875vw,13.375rem)]'></div>
       <FAQ
         title={HomePageData.faq.title}
