@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const CounterItem = ({ item, index }) => {
