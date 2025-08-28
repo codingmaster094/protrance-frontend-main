@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import dayjs from "dayjs";
 
 const Calculater = () => {
   const [cigarettesPerDay, setCigarettesPerDay] = useState(25);
