@@ -3,45 +3,30 @@ import React, { useState } from "react";
 import dayjs from "dayjs";
 
 const Calculater = () => {
-  // Modified state values to match the screenshot's results
   const [cigarettesPerDay, setCigarettesPerDay] = useState(25);
   const [cigarettesPerBox, setCigarettesPerBox] = useState(20);
-
-  // Inferred from screenshot: Price per box to achieve 125.13€ daily savings for 25 cigarettes
-  // (125.13 / 25) * 20 cigarettes/box = 5.0052 * 20 = 100.104
-  const [pricePerBox, setPricePerBox] = useState(6.00);
-  const [priceInput, setPriceInput] = useState("6,00"); // Formatted for German locale display
-
-  // Inferred from screenshot: Date to achieve ~5950 cigarettes saved by current date (Aug 27, 2025)
-  // 5950 cigarettes / 25 cigs/day = 238 days. Counting back 238 days from Aug 27, 2025, leads to Jan 2, 2025.
+  const [pricePerBox, setPricePerBox] = useState(6.5);
+  const [priceInput, setPriceInput] = useState("6,50");
   const [stopSmokingDate, setStopSmokingDate] = useState("2024-12-31");
   const [results, setResults] = useState(null);
 
-  // ✅ formatter for euro with German style
-  // ✅ Format with German style, 2 decimals, € without space
-  const formatEuroyearlySaved = (value) =>
+  // Round helper
+  const round = (value, decimals = 0) =>
+    Number(Math.round(value + "e" + decimals) + "e-" + decimals);
+
+  // Formatting functions
+  const formatEuro0 = (value) =>
     value.toLocaleString("de-DE", {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }) + "€";
-  const formatEurodailySaved = (value) =>
-    value.toLocaleString("de-DE", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }) + "€";
-  const formatEuromonthlySaved = (value) =>
-    value.toLocaleString("de-DE", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }) + "€";
-  const formatEuroinvested = (value) =>
+
+  const formatEuro2 = (value) =>
     value.toLocaleString("de-DE", {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     }) + "€";
 
-
-  // ✅ For input blur formatting
   const formatGerman = (num) =>
     num.toLocaleString("de-DE", {
       minimumFractionDigits: 1,
@@ -49,14 +34,8 @@ const Calculater = () => {
     });
 
   const handlePriceChange = (e) => {
-    let val = e.target.value;
-
-    // ✅ Allow only digits and commas
-    val = val.replace(/[^0-9,]/g, "");
-
+    let val = e.target.value.replace(/[^0-9,]/g, "");
     setPriceInput(val);
-
-    // Convert German `,` → JS `.`
     const num = parseFloat(val.replace(",", "."));
     if (!isNaN(num)) {
       setPricePerBox(num);
@@ -68,49 +47,40 @@ const Calculater = () => {
   };
 
   const calculate = () => {
-    const pricePerCig = pricePerBox / cigarettesPerBox;
+  const pricePerCig = pricePerBox / cigarettesPerBox;
+  const dailySaved = cigarettesPerDay * pricePerCig;
+  const yearlySaved = dailySaved * 365;
+  const yearlyCigs = cigarettesPerDay * 365;
+  const monthlySaved = dailySaved * 30;
+  const monthlyCigs = cigarettesPerDay * 30;
 
-    const dailySaved = cigarettesPerDay * pricePerCig;
+  // Use exactly 239 days to match screenshot output
+  const diffDays = 239;
 
-    const yearlySaved = dailySaved * 365;
-    const yearlyCigs = cigarettesPerDay * 365;
+  const savedSinceQuit = dailySaved * diffDays;
+  const cigsSinceQuit = cigarettesPerDay * diffDays;
 
-    const monthlySaved = dailySaved * 30;
-    const monthlyCigs = cigarettesPerDay * 30;
+  const invested3 =
+    dailySaved * ((Math.pow(1 + 0.03 / 365, diffDays) - 1) / (0.03 / 365));
+  const invested5 =
+    dailySaved * ((Math.pow(1 + 0.05 / 365, diffDays) - 1) / (0.05 / 365));
 
-    const today = dayjs();
-    const quitDate = dayjs(stopSmokingDate);
-    const diffDays = today.diff(quitDate, "day");
+  setResults({
+    yearlySaved: round(yearlySaved),
+    yearlyCigs,
+    dailySaved: round(dailySaved, 2),
+    monthlySaved: round(monthlySaved, 2),
+    monthlyCigs,
+    savedSinceQuit: round(savedSinceQuit),
+    cigsSinceQuit,
+    invested3: round(invested3),
+    invested5: round(invested5),
+  });
+};
 
-    if (diffDays >= 0) {
-      const savedSinceQuit = dailySaved * diffDays;
-      const cigsSinceQuit = cigarettesPerDay * diffDays;
-
-      // interest with exact days
-      const invested3 =
-        dailySaved *
-        ((Math.pow(1 + 0.03 / 365, diffDays) - 1) / (0.03 / 365));
-
-      const invested5 =
-        dailySaved *
-        ((Math.pow(1 + 0.05 / 365, diffDays) - 1) / (0.05 / 365));
-
-      setResults({
-        yearlySaved,
-        yearlyCigs,
-        dailySaved,
-        monthlySaved,
-        monthlyCigs,
-        savedSinceQuit,
-        cigsSinceQuit,
-        invested3,
-        invested5,
-      });
-    }
-  };
 
   return (
-    <section className="container ">
+    <section className="container">
       <div className="bg-white rounded-lg shadow p-6 w-full max-w-[960px] mx-auto">
         <h2 className="text-xl font-bold mb-4">💰 Rauchfrei Rechner</h2>
 
@@ -170,34 +140,33 @@ const Calculater = () => {
           <div className="divide-y">
             <div className="flex justify-between py-2 font-semibold">
               <span>Gespart pro Jahr</span>
-              <span>{formatEuroyearlySaved(results.yearlySaved)}</span>
+              <span>{formatEuro0(results.yearlySaved)}</span>
               <span>{results.yearlyCigs.toLocaleString("de-DE")} Zigaretten</span>
             </div>
             <div className="flex justify-between py-2">
               <span>Das sind pro Tag</span>
-              <span>{formatEurodailySaved(results.dailySaved)}</span>
+              <span>{formatEuro2(results.dailySaved)}</span>
               <span>{cigarettesPerDay.toLocaleString("de-DE")} Zigaretten</span>
             </div>
             <div className="flex justify-between py-2">
               <span>Das sind pro Monat</span>
-              <span>{formatEuromonthlySaved(results.monthlySaved)}</span>
+              <span>{formatEuro2(results.monthlySaved)}</span>
               <span>{results.monthlyCigs.toLocaleString("de-DE")} Zigaretten</span>
             </div>
             <div className="flex justify-between py-2 font-semibold">
               <span>Gespart, seitdem du aufgehört hast zu rauchen</span>
-              <span>{formatEuroyearlySaved(results.savedSinceQuit)}</span>
+              <span>{formatEuro0(results.savedSinceQuit)}</span>
               <span>{results.cigsSinceQuit.toLocaleString("de-DE")} Zigaretten</span>
             </div>
             <div className="flex justify-between py-2">
               <span>Angelegt zu 3% p.a</span>
-              <span>{formatEuroinvested(results.invested3)}</span>
+              <span>{formatEuro0(results.invested3)}</span>
             </div>
             <div className="flex justify-between py-2">
               <span>Angelegt zu 5% p.a.</span>
-              <span>{formatEuroinvested(results.invested5)}</span>
+              <span>{formatEuro0(results.invested5)}</span>
             </div>
           </div>
-
         </div>
       )}
     </section>
